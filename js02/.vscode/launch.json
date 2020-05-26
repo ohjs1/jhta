@@ -1,0 +1,63 @@
+// Use IntelliSense to learn about possible attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome localhost",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9271,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:8081/js02/test04_quiz.html"
+    },
+    {
+      "name": "Launch test06_css.html",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9225,
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9258,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:49545/p/js02/WebContent/test06_css.html?_cmAuth\u003dabetrqxtdj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (1)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9267,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:49545/p/js02/WebContent/test07_quiz.html?_cmAuth\u003dabetrqxtdj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (2)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9253,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:49545/p/js02/WebContent/0409quest1.html?_cmAuth\u003dabetrqxtdj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (3)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9249,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js02/WebContent/0409quest1.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (4)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9253,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js02/WebContent/0409quest3.html?_cmAuth\u003doxtuiapvuj"
+    }
+  ]
+}

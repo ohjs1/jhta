@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr =null;
+	function getData(){
+		xhr =new XMLHttpRequest();
+		xhr.onreadystatechange =onData;
+		xhr.open('get', 'server.jsp', true);
+		xhr.send();
+	}
+	
+	function onData(){
+		if(xhr.status==200 && xhr.readyState==4){
+			var data =xhr.responseText;
+			var json =JSON.parse(data);
+			var div =document.getElementById("data");
+			div.innerHTML ="아이디:" + json.id + "<br>" +
+			"비밀번호:" + json.pwd + "<br>" +
+			"이메일:" + json.email;
+		}
+	}
+</script>
+</head>
+<body>
+<!-- ajax사용해서 회원정보(3/server.jsp) 출력해보세요. -->
+	<input type="button" value="회원정보" onclick="getData()" />
+	<div id="data"></div>
+</body>
+</html>

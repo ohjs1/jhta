@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function changeImg(value){
+		console.log(value);
+		document.querySelector("#dogImg").src =value;
+	}
+</script>
+</head>
+<body>
+	<input type="radio" name="강아지" value="images/3.png" 
+	checked="checked" onclick="changeImg(this.value)">강아지1
+	<input type="radio" name="강아지" value="images/4.png" onclick="changeImg(this.value)">강아지2
+	<input type="radio" name="강아지" value="images/5.png" onclick="changeImg(this.value)">강아지3
+	<br>
+	<img src="images/3.png" alt="강아지" id="dogImg">
+</body>
+</html>

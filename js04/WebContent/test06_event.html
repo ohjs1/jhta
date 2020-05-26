@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = () => {
+		var btn1 = document.querySelector("#btn1");
+		btn1.onclick = () => { //이벤트 1개만 등록가능 (덮어씌워짐)
+			alert("hello");
+		}
+
+		var btn2 = document.querySelector("#btn2");
+		btn2.addEventListener("click", test1);
+
+		function test1(e){
+			alert("hello2");
+		}
+
+		var btn3 = document.querySelector("#btn3");
+		btn3.addEventListener('click', function(e){
+			btn2.removeEventListener('click', test1); //이벤트리스너 삭제
+			alert("event listener delete!");
+		});
+
+		var changeImg = document.getElementById("changeImg");
+		changeImg.addEventListener('mouseover', (e) => {
+		// alert("test");
+			changeImg.src = "images/2.png/";
+		});
+
+		changeImg.addEventListener('mouseout', (e) => {
+		// alert("test");
+			changeImg.src = "images/1.png/";
+		});
+	}
+
+	
+</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="click1">
+	<input type="button" id="btn2" value="click2">
+	<input type="button" id="btn3" value="click3"><br>
+	<img src="images/1.png/" id="changeImg">
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인터넷 서점</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+	.items {
+		width: 250px;
+		height: 350px;
+		background-color: aquamarine;
+		margin-top: 30px;
+		margin-left: 30px;
+		display: inline-block;
+	}
+
+	.items img {
+		width: 250px;
+		height: 350px;
+		margin: 0px;
+		background-color: brown;
+	}
+</style>
+<script>
+	window.onload = function(){
+		var items = document.querySelectorAll(".items");
+		for(var i=0; i<items.length; i++){
+			items[i].addEventListener('click', function(){
+				var chk =confirm("해당책을 구입하시겠습니까?\n" + this.firstChild.alt);
+				if(chk){
+					alert(this.firstChild.alt + "\n구입 완료!");
+				}
+			});
+		}
+	}
+</script>
+</head>
+<body>
+<div id="warp">
+	<div id="header">
+			<a href="book_main.html"><img src="images/logo.jpg" alt="로고"></a>
+			<a href="member_join.html"><img src="images/join.jpg" alt="회원가입"></a>
+			<a href="login.html"><img src="images/login.jpg" alt="로그인"></a>
+	</div>
+	<div id="content">
+		<h1>책 리스트</h1>
+		<div class="items"><img src="books/1.jpg" alt="잠중록"></div>
+		<div class="items"><img src="books/2.jpg" alt="더 해빙"></div>
+		<div class="items"><img src="books/3.jpg" alt="지적대화를위한 넓고얕은 지식"></div>
+		<div class="items"><img src="books/4.jpg" alt="앞으로3년 경제전쟁의 미래"></div>
+		<div class="items"><img src="books/5.jpg" alt="심리계좌"></div>
+		<div class="items"><img src="books/6.jpg" alt="타이탄의 도구들"></div>
+	</div>
+	<div id="footer">
+		<p>
+			copyright(c) Book Market
+		</p>
+	</div>
+</div>
+</body>
+</html>

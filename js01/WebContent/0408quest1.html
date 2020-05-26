@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#main {
+		border: 1px solid black;
+		width: 350px;
+		height: 250px;
+		padding: 25px;
+		margin: auto;
+	}
+	
+	.box {
+		margin-bottom: 15px;
+	}
+	
+	.box label {
+		width: 150px;
+		display: inline-block;
+	}
+	
+	.box input {
+		display: inline-block;
+		width: 150px;
+	}
+</style>
+
+
+<script type="text/javascript">
+
+	function calc(){
+		var kor =document.getElementById("kor").value;
+		var eng =document.getElementById("eng").value;
+		var math =document.getElementById("math").value;
+		
+		var sumc =document.getElementById("max");
+		var sum_result =sum(kor, eng, math);
+		sumc.value =sum_result;
+		
+		var avgc =document.getElementById("avgc");
+		var avg_result =avg(kor, eng, math);
+		avgc.value =avg_result;
+		
+		var rankc =document.getElementById("rank");
+		var rank_result =rank(avg_result);
+		rankc.value =rank_result;
+	}
+	
+	function sum(kor, eng, math){
+		return Number(kor) + Number(eng) + Number(math);
+	}
+	
+	function avg(kor, eng, math){
+		return (Number(kor) + Number(eng) + Number(math)) / 3;
+	}
+	
+	function rank(avgr){
+		if(avgr>=90){
+			return 'A';
+		} else if(avgr>=80){
+			return 'B';
+		} else if(avgr>=70){
+			return 'C';
+		} else if(avgr>=60){
+			return 'D';
+		} else {
+			return 'F';
+		}
+	}
+	
+	function reset(){
+		var sumc =document.getElementById("max");
+		var avgc =document.getElementById("avgc");
+		var rankc =document.getElementById("rank");
+		
+		var kor =document.getElementById("kor");
+		var eng =document.getElementById("eng");
+		var math =document.getElementById("math");
+		
+		sumc.value ="";
+		avgc.value ="";
+		rankc.value ="";
+		
+		kor.value ="";
+		eng.value ="";
+		math.value ="";
+	}
+</script>
+</head>
+<body>
+	<div id="main">
+		<div class="box">
+			<label>국어</label>
+			<input type="text" id="kor"/>
+		</div>
+		
+		<div class="box">
+			<label>영어</label>
+			<input type="text" id="eng"/>
+		</div>
+		
+		<div class="box">
+			<label>수학</label>
+			<input type="text" id="math"/>
+		</div>
+		
+		<div class="box">
+			<input type="button" value="계산" onclick="calc()"/>
+			<input type="button" value="지우기" onclick="reset()"/>
+		</div>
+		
+		<div class="box">
+			<label>총점</label>
+			<input type="text" id="max"/>
+		</div>
+		
+		<div class="box">
+			<label>평균</label>
+			<input type="text" id="avgc"/>
+		</div>
+		
+		<div class="box">
+			<label>학점</label>
+			<input type="text" id="rank"/>
+		</div>
+	</div>
+</body>
+</html>

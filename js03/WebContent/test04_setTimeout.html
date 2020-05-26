@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+		setTimeout(호출형 함수, 시간);
+		==> 함수를 딱 한번만 호출
+		clearTimeout(타이머 아이디);
+	*/
+	setTimeout(getTime, 1000); //1초후 getTime함수를 호
+	function getTime(){
+		var hours =new Date().getHours();
+		var minute =new Date().getMinutes();
+		var second =new Date().getSeconds();
+		console.log(hours);
+		console.log(minute);
+		var time =document.querySelector("#t");
+		time.innerHTML =hours + "시" + minute + "분" + second + "초";
+		setTimeout(getTime, 1000);
+	}
+	//setTimeout(goNaver, 10000);
+	function goNaver(){
+		location.href ="https://www.naver.com/";
+	}
+</script>
+</head>
+<body>
+	<div id="t"></div>
+	<input type="button" value="시간보이기">
+</body>
+</html>

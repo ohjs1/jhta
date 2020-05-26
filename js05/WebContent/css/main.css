@@ -1,0 +1,50 @@
+@charset "UTF-8";
+* {
+		margin: 0px;
+		padding: 0px;
+	}
+
+	#warp {
+		width: 1200px;
+		height: 1400px;
+		margin: auto;
+	}
+
+	#header {
+		background-color: cornflowerblue;
+		width: 100%;
+		height: 5%;
+	}
+
+	#content {
+		background-color: white;
+		width: 100%;
+		height: 90%;
+	}
+
+	#footer {
+		background-color: cornflowerblue;
+		width: 100%;
+		height: 5%;
+	}
+
+	img {
+		margin-left:10px; 
+		margin-top:10px;
+	}
+
+	a {
+		width:140px;
+		height:50px;
+	}
+
+	body {
+		background-color: cornflowerblue;
+	}
+
+	#footer p {
+		text-align: center;
+		margin-top: 20px;
+		font-size: 2em;
+		color: white;
+	}

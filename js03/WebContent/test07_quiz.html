@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function copyForm(chk){
+		var name =document.querySelector("#name");
+		var addr =document.querySelector("#addr");
+		var name2 =document.querySelector("#name2");
+		var addr2 =document.querySelector("#addr2");
+
+		if(chk){
+			name2.value =name.value;
+			addr2.value =addr.value;
+
+		} else {
+			name2.value ="";
+			addr2.value ="";
+		}
+	}
+</script>
+</head>
+<body>
+	회원이름 <input type="text" id="name"><br>
+	회원주소 <input type="text" id="addr"><br>
+	<input type="checkbox" name="chk" onclick="copyForm(this.checked)">위와 동일 <br>
+	받는사람 <input type="text" id="name2"><br>
+	받는주소 <input type="text" id="addr2"><br>
+</body>
+</html>

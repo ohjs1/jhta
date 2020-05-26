@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+	[ json ]
+	- 서로 다른 프로그램언어간의 데이터 통신을 위한 표기법(읽고 쓰기 쉬운표현법)
+	- 경량의 데이터를 교환하는 방식으로 인터넷에서 데이터를 주고받을때 표현하는 방법
+	- name/value 형태의 한쌍으로 표현된다.
+ -->
+ <script type="text/javascript">
+ 	var user ={
+ 			"id" : "admin",
+ 			"pwd" : "1234"
+ 	}; //json
+ 	
+ 	console.log(user.id + "," + user.pwd);
+ 	
+ 	function printUser(u){
+ 		console.log(u.id + "," + u.pwd);
+ 	}
+ 	
+ 	printUser(user);
+ 	//도서정보(도서제목, 저자, 가격, 출판사)를 json객체에 담고 값을 출력해 보세요.
+ 	
+ 	var bookInfo ={
+ 		"title" : "수학의정석",
+ 		"author" : "박정석",
+ 		"price" : 10000,
+ 		"publisher" : "들녘"
+ 	};
+ 	
+ 	console.log("도서제목: " + bookInfo.title);
+ 	console.log("저자: " + bookInfo.author);
+ 	console.log("가격: " + bookInfo.price);
+ 	console.log("출판사: " + bookInfo.publisher);
+ 	
+ 	var users=[
+ 		{"id" : "test", "pwd" : "1245", "email" : "test@naver.com"},
+ 		{"id" : "hello", "pwd" : "0000", "email" : "hello@naver.com"},
+ 		{"id" : "admin", "pwd" : "1234", "email" : "admin@naver.com"}
+ 	];
+ 	
+ 	for(var i=0; i<users.length; i++){
+ 		console.log(users[i].id + "," + users[i].pwd + "," + users[i].email);
+ 	}
+ 	
+ 	//도서정보 3개를 담는 json배열을 만들고 전체 정보를 출력해 보세요.
+ 	var books =[
+ 		{"title" : "수학의 정석", "author" : "박정석", "price" : 10000, "publisher" : "들녘"},
+ 		{"title" : "생활영어", "author" : "김철민", "price" : 5000, "publisher" : "들녘"},
+ 		{"title" : "농작물 재배법", "author" : "홍시", "price" : 25900, "publisher" : "사과"}
+ 	];
+ 	
+ 	for(var i=0; i<books.length; i++){
+ 		console.log("도서제목:" + books[i].title);
+ 		console.log("저자:" + books[i].author);
+ 		console.log("가격:" + books[i].price);
+ 		console.log("출판사:" + books[i].publisher);
+ 		console.log("-----------------------------");
+ 	}
+ 	
+ 	var member ={
+ 			"grade" : "gold",
+ 			"list" : [{"id":"test", "pwd":"1234"}, {"id":"hello", "pwd":"5678"}],
+ 			showMsg : function(msg){ //무명함수
+ 				alert(msg);
+ 			}
+ 	};
+ 	
+ 	member.showMsg("반가워요!");
+ 	
+ 	console.log("회원등급:" + member.grade);
+ 	for(var i=0; i<member.list.length; i++){
+ 		console.log(member.list[i].id + "," + member.list[i].pwd);
+ 	}
+ 	
+ 	var mem ="{'id':'test', 'name':'길동', 'pwd':1234}";
+ 	var json =eval("("+ mem +")");
+ 	console.log("아이디:" + json.id);
+ 	console.log("이름:" + json.name);
+ 	console.log("비밀번호:" + json.pwd);
+ </script>
+ 
+</body>
+</html>

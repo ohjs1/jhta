@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#area1 {
+		border:1px solid green;
+	}
+</style>
+<script>
+	function changeForm(){
+		var c =document.getElementById("color1").value;
+		var w =document.getElementById("width1").value;
+		var h =document.getElementById("height1").value;
+
+		var div =document.getElementById("area1");
+
+		div.style.backgroundColor =c;
+		console.log(w);
+		console.log(h);
+		div.style.width =w;
+		div.style.height =h;
+	}
+</script>
+</head>
+<body>
+	<div id="content">
+		<label>색상</label>
+		<input type="text" id="color1"><br>
+		<label>가로</label>
+		<input type="text" id="width1"><br>
+		<label>세로</label>
+		<input type="text" id="height1"><br>
+		<input type="button" value="적용" onclick="changeForm()">
+	</div>
+	<div id="area1"></div>
+</body>
+</html>

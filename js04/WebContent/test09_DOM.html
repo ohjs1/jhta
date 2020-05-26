@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type="button" value="버튼생성" id="button">
+<div id="btnList"></div>
+
+<input type="button" value="이미지생성" id="button1">
+<div id="imglist"></div>
+</body>
+<script>
+	var button = document.getElementById("button");
+	var i = 1;
+	button.addEventListener('click', function(){
+		//버튼을 생성해서 btnList에 붙여보세요.
+		var addbtn = document.getElementById("btnList");
+		var btn = document.createElement("input");
+		btn.type = "button";
+		btn.value = "btn" + ( i++ );
+		addbtn.appendChild(btn);
+		btn.addEventListener('click', function(){
+			alert(this.value + "버튼을 클릭하셨군여..");
+		});
+	});
+
+	var button1 = document.getElementById("button1");
+	var imglist = document.getElementById("imglist");
+
+	
+	var addAction = function(e){
+		for(var i=1; i<=5; i++){
+			let addimg = document.createElement("img");
+			addimg.src = "images/" + i + ".png";
+			imglist.appendChild(addimg);
+
+			addimg.addEventListener('mouseover', function(){
+				this.style.border = "10px solid aqua";
+			});
+
+			addimg.addEventListener('mouseout', function(){
+				this.style.border = "none";
+			});
+		}
+		button1.removeEventListener('click',addAction);
+	}
+	button1.addEventListener('click', addAction);
+	
+	
+	
+</script>
+</html>

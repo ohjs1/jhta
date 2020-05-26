@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function showDate(){
+		//var d =new Date(2020, 3, 9); //현재날짜와 시간에 대한 정보를 갖는 객체 생성
+		var d =new Date();
+		var y =d.getFullYear(); //년
+		var m =d.getMonth()+1; //월
+		var day =d.getDate(); //일
+		var w =d.getDay(); //요일 얻어오기
+		var hours =d.getHours();
+		var minutes =d.getMinutes();
+		var seconds =d.getSeconds();
+
+		var div =document.getElementById("d");
+		var t =document.getElementById("t");
+		var z =["일","월", "화", "수", "목", "금", "토"];
+		div.innerHTML =y + "년" + m + "월" + day + "일" + z[w] +"요일";
+		t.innerHTML =hours + "시" + minutes + "분" + seconds + "초";
+	}
+</script>
+</head>
+<body onload="showDate()">
+	<div id="d"></div>
+	<div id="t"></div><!--현제 시간을 구해서 출력되도록 해보세요-->
+</body>
+</html>

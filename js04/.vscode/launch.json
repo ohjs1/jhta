@@ -1,0 +1,88 @@
+// Use IntelliSense to learn about possible attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome 127.0.0.1",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9201,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js04/WebContent/test01_var.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (1)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9223,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js04/WebContent/test02_function.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (2)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9275,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js04/WebContent/test03_event.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (3)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9255,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js04/WebContent/test04_event.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (4)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9274,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js04/WebContent/test05_quiz.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (5)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9210,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js04/WebContent/test06_event.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (6)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9216,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js04/WebContent/test07.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (7)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9214,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js04/WebContent/test08_DOM.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (8)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9226,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js04/WebContent/test09_DOM.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (9)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9236,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js04/WebContent/0413quest1.html?_cmAuth\u003doxtuiapvuj"
+    }
+  ]
+}

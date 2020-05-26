@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#box {
+		width:300px;
+		height:200px;
+		background-color: aqua;
+	}
+</style>
+<script>
+	var tid =setInterval(changeColor, 1000);
+	var colors =["green", "blue", "oranage"];
+	var i =0;
+
+	function changeColor(){
+		var setColor =document.querySelector("#box");
+		setColor.style.backgroundColor=colors[i++];
+		if(i==colors.length) i =0;
+	}
+
+	function stopChange(){
+		clearInterval(tid);
+	}
+
+</script>
+</head>
+<body>
+	현재시간 <input type="text" id="time" readonly><br><br>
+ 
+	<input type="button" value="색상변경" onclick="changeColor()">
+	<input type="button" value="색상멈춤" onclick="stopChange()">
+	<div id="box"></div>
+</body>
+
+<script>
+	var hours =new Date().getHours();
+	var minute =new Date().getMinutes();
+	var time =document.querySelector("#time");
+	time.value =hours + "시" + minute + "분";
+</script> 
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>과제2</title>
+<style>
+	#warp {
+		width: 1200px;
+		height: 800px;
+		border: 3px solid black;
+		padding: 15px;
+	}
+	#header {
+		width: 100%;
+		height: 20%;
+	}
+
+	#main {
+		width: 100%;
+		height: 60%;
+	}
+
+	#footer {
+		width: 100%;
+		height: 20%;
+	}
+
+	#movieInfo {
+		width: 650px;
+		height: 450px;
+		border: 3px solid black;
+		display: none;
+	}
+</style>
+
+<script>
+	function beforeMovieInfo(){
+		movieObj =document.querySelector("#movieInfo");
+		movieObj.style.display ="block";
+
+		srcImg1 =document.querySelector(".img1");
+		srcImg1.src ="images/001.jpg";
+
+		srcImg2 =document.querySelector(".img2");
+		srcImg2.src ="images/002.jpg";
+
+		srcImg3 =document.querySelector(".img3");
+		srcImg3.src ="images/003.jpg";
+	}
+
+	function afterMovieInfo(){
+		movieObj =document.querySelector("#movieInfo");
+		movieObj.style.display ="block";
+
+		srcImg1 =document.querySelector(".img1");
+		srcImg1.src ="images/004.jpg";
+
+		srcImg2 =document.querySelector(".img2");
+		srcImg2.src ="images/005.jpg";
+
+		srcImg3 =document.querySelector(".img3");
+		srcImg3.src ="images/006.jpg";
+	}
+</script>
+</head>
+<body>
+	<div id="warp">
+		<div id="header">
+			<h1>우리우리 영화관</h1>
+		</div>
+		<div id="main">
+			<a href="javascript:beforeMovieInfo()">현제 상영작</a>
+			<a href="javascript:afterMovieInfo()">상영 예정작</a>
+
+			<div id="movieInfo">
+				<img src="" class="img1">
+				<img src="" class="img2">
+				<img src="" class="img3">
+			</div>
+		</div>
+		<div id="footer">
+			<h3>재밌는 이벤트 진행중...</h3>
+		</div>
+	</div>
+</body>
+</html>

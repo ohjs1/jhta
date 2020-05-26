@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인터넷 서점</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+	#loginform {
+		width: 500px;
+		margin-left: 400px;
+		padding-top: 200px;
+	}
+
+	label {
+		display: inline-block;
+		width: 120px;
+	}
+
+	h1 {
+		margin-bottom: 15px;
+	}
+	input {
+		margin-top: 15px;
+	}
+
+	#login {
+		width: 100px;
+	}
+</style>
+<script>
+	window.onload = function(){
+		var id = document.getElementById("id");
+		var pwd = document.getElementById("pwd");
+		login.onclick = function(){
+			if(id.value == "admin" && pwd.value == "1234"){
+				alert('로그인 성공!');
+			} else {
+				alert("아이디와 비밀번호가 다릅니다.");
+				id.focus();
+				id.value ="";
+				pwd.value ="";
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<div id="warp">
+	<div id="header">
+			<a href="book_main.html"><img src="images/logo.jpg" alt="로고"></a>
+			<a href="member_join.html"><img src="images/join.jpg" alt="회원가입"></a>
+			<a href="login.html"><img src="images/login.jpg" alt="로그인"></a>
+	</div>
+	<div id="content">
+		<div id="loginform">
+			<h1>로그인 페이지</h1>
+			<label for="아이디">아이디</label>
+			<input type="text" id="id"><br>
+			<label for="비밀번호">비밀번호</label>
+			<input type="password" id="pwd"><br>
+			<input type="button" value="login" id="login">
+		</div>
+	</div>
+	<div id="footer">
+		<p>
+			copyright(c) Book Market
+		</p>
+	</div>
+</div>
+</body>
+</html>

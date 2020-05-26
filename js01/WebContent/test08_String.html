@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var str ="hello world!";
+	console.log("문자열길이:"+str.length);
+	var a =str.charAt(1); //1번째 위치 글자 꺼내오기
+	console.log("2번째글자:" + a);
+	
+	var b=str.substr(1, 4); //1번째부터 글자 4개 꺼내오기
+	console.log(b);
+	
+	var c=str.substring(1, 4); //1번째부터 4번째(-1) 위치의 글자 꺼내오기
+	console.log(c);
+	
+	var i=str.indexOf("e"); //문자 "e"의 위치 찾기
+	console.log("문자e의 위치:"+i);
+	
+	function showDate(){
+		var id =document.getElementById("id");
+		var email =document.getElementById("email");
+		var pwd =document.getElementById("pwd");
+		
+		if(!(id.value.length>=5 && id.value.length<=9)){
+			alert("아이디를 5~9자 사이로 입력해 주세요!");
+			id.focus(); //포커스 주기
+			id.value =""; //입력된 값 지우기
+			return; //메소드 끝내기
+		}
+		
+		//아이디가 모두 영문소문자로 이루어져있는지 검사해 보세요
+		for(var i=0; i<id.value.length; i++){
+			if(!(id.value.charAt(i)>='a' && id.value.charAt(i)<='z')){
+				alert("아이디는 소문자로만 입력해주세요.");
+				id.focus(); //포커스 주기
+				id.value =""; //입력된 값 지우기
+			}
+		}
+		var chk=false;
+		
+		for(var i=0; i<email.value.length; i++){
+
+			if(email.value.charAt(i)=='@'){
+				//alert("@포함됨!");
+				chk =true;
+				document.getElementById("result2").innerHTML ="입력된 이메일:"+email.value;
+			}
+		}
+		if(chk==false){
+			alert("이메일에는 @를 반드시 포함시켜주세요");
+			email.focus(); //포커스 주기
+			email.value =""; //입력된 값 지우기
+		}
+		
+		document.getElementById("result").innerHTML ="입력된 아이디:"+id.value;
+		
+		
+		//비밀번호 5자이상 모두숫자로 이루어졌는지 검사
+		for(var i=0; i<pwd.value.length; i++){
+			if(pwd.value.length>=5){
+				if(!(pwd.value.charAt(i)>=0 && pwd.value.charAt(i)<=9)){
+					alert("비밀번호를 형식에맞게 입력해주세요.");
+					break;
+				}
+			} else {
+				alert("비밀번호를 형식에맞게 입력해주세요.");
+				break;
+			}
+		}
+
+	}
+</script>
+</head>
+<body>
+	아이디(5~9자 사이) <input type="text" id="id" /> <br>
+	<!-- 비밀번호는 5자이상이고 모두 숫자로 이루어졌는지 검사해보세요. -->
+	비밀번호(5자이상 모두 숫자) <input type="password" id="pwd" /><br>
+	<!-- 이메일에 @가 포함되었는지 검사해 보세요. -->
+	이메일 <input type="text" id="email"/> <br>
+	
+	<input type="button" value="확인" onclick="showDate()" />
+	<div id="result"></div>
+	<div id="result2"></div>
+	
+</body>
+</html>

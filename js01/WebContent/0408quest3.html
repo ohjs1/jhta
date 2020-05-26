@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#main {
+		width: 450px;
+		height: 100px;
+		border-left: 2px solid black;
+	}
+	
+	#content label {
+		display: block;
+		margin-top: 5px;
+	}
+</style>
+
+<script type="text/javascript">
+	function check(){
+		var jnumber =document.getElementById("jnumber");
+		
+		if((!(jnumber.value.indexOf("-") == -1)) || !(jnumber.value.length==13)){
+			alert("형식에맞게 입력해주세요.");
+			jnumber.value ="";
+		}
+		
+		for(var i=0; i<jnumber.value.length; i++){
+			if(!(jnumber.value.charAt(i)>=0 && jnumber.value.charAt(i)<=9)){
+				alert("숫자만 입력해주세요.");
+				jnumber.value ="";
+				break;
+			}
+		}
+		
+		var gender =document.getElementById("gender");
+		if(jnumber.value[6]==1 || jnumber.value[6]==3){
+			//console.log("남자");
+			gender.innerHTML ="성별 : 남자";
+		} else if(jnumber.value[6]==2 || jnumber.value[6]==4){
+			//console.log("여자");
+			gender.innerHTML ="성별 : 여자";
+		}
+		
+		var birth =document.getElementById("birth");
+		birth.innerHTML =jnumber.value.substring(2,4) + "월 " + jnumber.value.substring(4,6) + "일";
+	}
+</script>
+</head>
+<body>
+	<div id="main">
+		<div id="header">
+			<label>주민 등록 번호</label>
+			<input type="text" id="jnumber"/>
+			<input type="button" value="클릭" onclick="check()"/>
+		</div>
+		<div id="content">
+			<label id="gender">성별:</label>
+			<label id="birth">생일:</label>
+		</div>
+	</div>
+</body>
+</html>

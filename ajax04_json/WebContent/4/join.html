@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		var xhr =null;
+		function idcheck(){
+			xhr =new XMLHttpRequest();
+			var id =document.getElementById("id").value;
+			xhr.onreadystatechange =onCheck;
+			xhr.open('get', 'server.jsp?id=' + id, true);
+			xhr.send();
+		}
+		
+		function onCheck(){
+			if(xhr.status==200 && xhr.readyState==4){
+				var data =xhr.responseText;
+				var json =JSON.parse(data);
+				var span =document.getElementById("idcheck");
+				
+				if(json.msg=='success'){
+					span.innerHTML ="아이디가 중복됩니다.";					
+				} else {
+					span.innerHTML ="아이디를 사용할수 있습니다.";	
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<!-- 아이디중복검사 해보세요. 응답은 json객체로 -->
+<h1>회원가입</h1>
+<form action="joinOk.jsp" method="post">
+	아이디 <input type="text" name="id" id="id" onkeyup="idcheck()"/>
+	<span id="idcheck"></span>
+	<br>
+	비밀번호 <input type="password" name="pwd"/><br>
+	이메일 <input type="text" name="email"/><br>
+	<input type="submit" value="가입" />
+</form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#img {
+		position: relative;
+		left: 0px;
+		top: 10px;
+	}
+</style>
+<script>
+	var pid, pid2;
+	var pos =0;
+
+	function move(){
+		pid =setInterval(imgMove, 200);
+	}
+
+	function imgMove(){
+		pos +=50;
+		var img =document.querySelector("#img");
+		img.style.left = pos + "px";
+		console.log(pos);
+
+		if(pos == 100){
+			clearInterval(pid);
+			pid2 =setInterval(imgReverse, 200);
+		}
+	}
+
+	function imgReverse(){
+		console.log(pos);
+		pos -=50;
+		img.style.left = pos + "px";
+		if(pos == 0){
+			clearInterval(pid2);
+			// pid =setInterval(imgMove, 200);
+			move();
+		}
+	}
+
+	
+</script>
+</head>
+<body>
+	<input type="button" value="이미지 이동" onclick="move()">
+	<img src="images/1.png" id="img"><br>
+</body>
+</html>

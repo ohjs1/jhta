@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>과제3</title>
+<style>
+	#calander {
+		border: 3px solid black;
+		width: 300px;
+		height: 300px;
+	}
+	
+	#ymd input {
+		width: 65px;
+		display: inline-block;
+		margin:auto;
+	}
+
+	#ymd {
+		margin-left: 20px;
+		margin-top: 10px;
+	}
+
+
+	#days {
+		width: 300px;
+		height: 265px;
+		padding: 15px;
+	}
+
+	tr {
+		border: 1px solid black;
+	}
+</style>
+
+<script>
+	function setCalender(){
+		var yy =document.querySelector("#yy").value;
+		var mm =document.querySelector("#mm").value;
+		var days =document.querySelector("#days");
+
+		settingDays(yy, mm, days);
+	}
+
+	function settingDays(yy, mm, days){
+		var calenderDay =yy+","+mm;
+		var date =new Date(calenderDay);
+		var dow =["일","월", "화", "수", "목", "금", "토"];
+		var startDay =date.getDay();
+		console.log(dow[startDay]); //요일
+		var lastDay =new Date(yy, mm, 0).getDate();
+
+		console.log(lastDay);
+
+		var tableHTML ="";
+		days.innerHTML ="";
+
+		tableHTML += "<table>";
+		
+		tableHTML +="<tr>";
+		for(var j=0; j<dow.length; j++){
+			tableHTML +="<td>" + dow[j] + "</td>";
+		}
+		tableHTML +="</tr>";
+		
+		tableHTML +="<tr>";
+		for(var i=0; i<startDay; i++){
+			tableHTML +="<td></td>";
+		}
+		
+		for(var i=1; i<=lastDay; i++){
+
+			if(startDay%7==0){
+				tableHTML +="</tr>";
+				tableHTML +="<tr>";
+			}
+			startDay++;
+			tableHTML +="<td>" + i + "</td>";
+		}
+		tableHTML +="</tr>"
+		tableHTML += "</table>";
+
+		days.innerHTML =tableHTML;
+	}
+
+</script>
+</head>
+<body>
+	<div id="calander">
+		<div id="ymd">
+			<input type="text" id="yy"> 년
+			<input type="text" id="mm"> 월
+			<input type="button" value="확인" onclick="setCalender()">
+		</div>
+		<table id="days"></table>
+	</div>
+</body>
+</html>

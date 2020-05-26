@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#img {
+		position: relative;
+		left: 0px;
+		top: 10px;
+	}
+</style>
+<script>
+	var pos =50;
+	function moveImg(){
+		var img =document.getElementById("img");
+		img.style.left =pos + "px";
+		pos += 100;
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="이미지 이동" onclick="moveImg()"><br>
+	<img src="images/1.png" id="img">
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.imgs {
+		width: 300px;
+		height: 250px;
+		opacity: 0.3;
+	}
+
+</style>
+<script>
+	window.onload =function(){
+		var imgs = document.querySelectorAll(".imgs");
+		for(var i=0; i<imgs.length; i++){
+			imgs[i].addEventListener('mouseover', function(e){
+				e.target.style.opacity = 1.0;
+				// imgs[i].style.opacity = 1.0;
+			});
+
+			imgs[i].addEventListener('mouseout', function(e){
+				e.target.style.opacity = 0.3;
+			});
+		}
+	}
+</script>
+</head>
+<body>
+<div>
+	<img src="images/1.jpg" class="imgs">
+	<img src="images/2.jpg" class="imgs">
+	<img src="images/3.jpg" class="imgs">
+	<img src="images/4.jpg" class="imgs">
+</div>
+</body>
+</html>

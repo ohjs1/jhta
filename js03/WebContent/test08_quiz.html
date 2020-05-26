@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test08_quiz.html</title>
+<script>
+	function changeImg(){
+		var imgs=document.getElementById("imgs");
+		var img1=document.getElementById("img1");
+		//img1.src=imgs.value;
+		img1.src=imgs.options[imgs.selectedIndex].value;
+		//img1.src=imgs[selected].value;
+	}
+	function changeImg1(value){
+		var img1=document.getElementById("img1");
+		img1.src=value;
+	}
+
+	function allChk(chk){
+		var box =document.querySelectorAll(".box");
+		if(chk){
+			for(var i=0; i<box.length; i++){
+				box[i].checked =true;
+			}
+		} else {
+			for(var i=0; i<box.length; i++){
+				box[i].checked =false;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<!-- 선택된 이미지가 보이도록 해보세요 -->
+<select id="imgs" size="4" onclick="changeImg1(this.value)">
+	<option value="images/2.png">커피</option>
+	<option value="images/19.png">선물</option>
+	<option value="images/17.png">맥주</option>
+	<option value="images/12.png">지구</option>
+</select><br>
+<img src="images/2.png" id="img1"><br>
+<table border="1" width="400">
+	<tr>
+		<td><input type="checkbox" onchange="allChk(this.checked)">전체 선택</td>
+		<td>보낸사람</td>
+		<td>제목</td>
+	</tr>
+	
+	<tr>
+		<td><input type="checkbox" class="box"></td>
+		<td>홍길동</td>
+		<td>테스트</td>
+	</tr>
+
+	<tr>
+		<td><input type="checkbox" class="box"></td>
+		<td>제목11</td>
+		<td>반가워여11</td>
+	</tr>
+
+	
+</table>
+</body>
+</html>

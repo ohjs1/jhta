@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var imgs =["images/004.jpg", "images/005.jpg", "images/006.jpg"];
+	function changeImg(){
+		var movie = document.querySelectorAll("#movie .movie2");
+		for(var i=0; i<imgs.length; i++){
+			movie[i].src =imgs[i];
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="movie">
+		<h1>최근 상영 영화</h1>
+		<img src="images/001.jpg" class="movie2" />
+		<img src="images/002.jpg" class="movie2" />
+		<img src="images/003.jpg" class="movie2" />
+		<!-- 버튼을 누르면 각각의 이미지를 배열의 이미지로 바꿔보세요. -->
+		<input type="button" value="다음 영화 보기" onclick="changeImg()"/>
+	</div>
+</body>
+</html>

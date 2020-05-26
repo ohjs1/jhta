@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<div id="warp">
+		<div id="title">
+			<h1>현재 인기 상영작</h1>
+		</div>
+		<div id="content">
+			<img src="images/001.jpg" class="movie">
+			<img src="images/002.jpg" class="movie">
+			<img src="images/003.jpg" class="movie">
+		</div>
+	</div>
+</body>
+<script>
+	var movie =document.querySelectorAll(".movie");
+	setInterval(changeImg, 1000);
+	var i =0;
+	var j =4;
+	function changeImg(){;
+		movie[i].src ="images/00" + j + ".jpg"; 
+		i++;
+		j++;
+		
+		if(i==3) i=0;
+		if(j==6) j=1;
+		if(j==3) j=4;
+	}
+</script>
+</html>

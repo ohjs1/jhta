@@ -1,0 +1,72 @@
+// Use IntelliSense to learn about possible attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome 127.0.0.1 (5)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9257,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js03/WebContent/test02_timer.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (6)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9289,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js03/WebContent/test03_imgMove.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (7)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9286,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js03/WebContent/test04_setTimeout.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (8)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9265,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js03/WebContent/test06_form.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (9)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9219,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js03/WebContent/0410quest1.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (10)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9266,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js03/WebContent/0410quest2.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (11)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9258,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js03/WebContent/0410quest3.html?_cmAuth\u003doxtuiapvuj"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (12)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9278,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:50741/p/js03/WebContent/test.html?_cmAuth\u003doxtuiapvuj"
+    }
+  ]
+}

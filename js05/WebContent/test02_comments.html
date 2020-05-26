@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#commAdd {
+		display: none;
+	}
+
+	.divlist {
+		border: 2px solid black;
+		width: 550px;
+		height: 150px;
+		margin-bottom: 10px;
+	}
+</style>
+</head>
+
+
+<body>
+<div id="commlist"></div>
+<!--방면록쓰기버튼누르면 div#commAdd 보이기-->
+<input type="button" value="방면록쓰기" id="btn1">
+<input type="button" value="댓글모두지우기" id="btn2">
+<div id="commAdd">
+	작성자<br>
+	<input type="text" id="writer"><br>
+	내용<br>
+	<textarea name="" id="content" cols="40" rows="7"></textarea>
+	<br>
+	<input type="button" value="등록" id="addBtn">
+	<input type="button" value="취소" id="cancelBtn">
+</div>
+</body>
+<script>
+	var btn1 = document.getElementById("btn1");
+	var commAdd = document.getElementById("commAdd");
+	var addBtn = document.getElementById("addBtn");
+	var commlist = document.getElementById("commlist");
+
+	btn1.addEventListener('click', function(){
+		commAdd.style.display = "block";
+	});
+
+	addBtn.onclick = function(){
+		var writer = document.getElementById("writer");
+		var content = document.getElementById("content");
+
+		var div = document.createElement("div");
+		div.className = "divlist";
+		div.innerHTML = "작성자 : " + writer.value + "<br>";
+		div.innerHTML += "내용 : " + content.value;
+
+		commlist.appendChild(div);
+
+		writer.value ="";
+		content.value ="";
+
+		commAdd.style.display = "none";
+		commlist.style.display = "block";
+
+		div.addEventListener('mouseover', function(){
+			this.style.backgroundColor = "aqua";
+		});
+
+		div.addEventListener('mouseout', function(){
+			this.style.backgroundColor = "white";
+		});
+	}
+
+	var btn2 = document.getElementById("btn2");
+
+	btn2.addEventListener('click', function(){
+		var commlist = document.getElementById("commlist");
+		var childNodes = commlist.childNodes; //모든 자식객체 얻어오기
+
+		for(let i=childNodes.length-1; i>=0; i--){
+			var commDiv = childNodes.item(i); //1번째 요소객체 얻어오기
+			commlist.removeChild(commDiv); //자식객체 제거하기
+		}
+	});
+
+	
+</script>
+</html>

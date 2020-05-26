@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<style>
+	label {
+		display: inline-block;
+		width: 100px;
+		background-color: white;
+	}
+	
+	.ph {
+		width: 50px;
+	}
+	
+	.phone {
+		width: 70px;
+	}
+	
+	#etc {
+		width: 500px;
+	}
+	
+	.btns {
+		border: none;
+		display: inline-block;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	#btnid {
+		margin: 0 auto;
+		width: 50%;
+	}
+	
+	.imgsbtn {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	#contents {
+		margin: 0 auto;
+		width: 50%;
+	}
+</style>
+</head>
+<body>
+<div id="contents">
+<img src="hw_images/gnb.gif" alt="회원가입"/>
+<form action="access.html">
+	<label for="name">이름</label>
+	<input type="text" id="name"/>
+	<label for="phone">전화번호</label>
+	<input type="text" id="phone" class="ph"/>-
+	<input type="text" class="ph"/>-
+	<input type="text" class="ph"/>
+	<div>
+		<label for="homepage">개인홈페이지</label>
+		<input type="text" value="http://" id="homepage"/>
+	</div>
+	<div>
+		<label for="id">아이디</label>
+		<input type="text" id="id"/>
+	</div>	
+	<div>
+		<label for="pwd">비밀번호</label>
+		<input type="password" id="pwd"/>
+	</div>
+	<div>
+		<label>비밀번호확인</label>
+		<input type="password"/>
+	</div>
+	<div>
+		<label>핸드폰 번호</label>
+		<select name="phone" class="phone_num">
+			<option value="010">010</option>
+			<option value="010">011</option>
+			<option value="010">019</option>
+		</select>
+		-
+		<input type="text" class="phone"/>
+		-
+		<input type="text" class="phone"/>
+		<label for="email">이메일</label>
+		<input type="text" />
+		@
+		<select name="mailsite">
+			<option value="daum.net">daum.net</option>
+			<option value="naver.com">naver.com</option>
+		</select>
+	</div>
+	<div>
+		<label>직업</label>
+		<select name="job">
+			<option value="학생">학생</option>
+			<option value="교사">교사</option>
+			<option value="수영선수">수영선수</option>
+			<option value="유튜버">유튜버</option>
+		</select>
+	</div>
+	<div>
+		<label>관심분야</label>
+		<input type="radio" name="atn" value="개발" checked="checked"/>
+		<label>개발</label>
+		<input type="radio" name="atn" value="인력파견"/>
+		<label>인력파견</label>
+		<input type="radio" name="atn" value="교육"/>
+		<label>교육</label>
+		<input type="radio" name="atn" value="시스템"/>
+		<label>시스템</label>
+	</div>
+	<div>
+		<label for="etc">기타사항</label>
+		<textarea id="etc" cols="30" rows="10"></textarea>
+	</div>
+	<div>
+		<label>첨부파일</label>
+		<input type="file" />
+	</div>
+	
+	<div id="btnid">
+		<button type="submit" class="btns">
+			<img src="hw_images/btn_confirm.gif" alt="확인" class="imgsbtn"/>
+		</button>
+		<button type="reset" class="btns">
+			<img src="hw_images/btn_cancle.gif" alt="취소" class="imgsbtn"/>
+		</button>
+	</div>
+	</form>
+</div>
+
+</body>
+</html>

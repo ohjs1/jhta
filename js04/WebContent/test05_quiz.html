@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body {
+		margin: 0px;
+	}
+	#imgfield {
+		position: absolute;
+		margin: 0px;
+		width: 500px;
+		height: 500px;
+		border: 3px solid aqua;
+		overflow: hidden;
+	}
+
+	#img {
+		position: absolute;
+		width: 100px;
+		height: 100px;
+	}
+</style>
+<script>
+	window.onload = function(){
+		var imgfield = document.querySelector("#imgfield");
+		var img = document.querySelector("#img");
+
+		imgfield.onclick = function(e){
+			var width = img.width/2;
+			var height = img.height/2;
+			
+			img.style.left = (e.clientX - width - imgfield.offsetLeft) + "px";
+			img.style.top = (e.clientY - height  - imgfield.offsetTop) + "px";
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="imgfield">
+		<img src="images/1.png" id="img">
+	</div>
+</body>
+</html>

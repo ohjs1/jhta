@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img {
+		width: 150px;
+		height: 150px;
+		border: 2px solid aqua;
+	}
+</style>
+
+<script>
+	window.onload = function(){
+		var before = document.getElementById("before");
+		var after = document.getElementById("after");
+		var index = document.querySelectorAll(".index");
+		var page = 1;
+
+		before.addEventListener('click', function(e){
+			if(page == 3){
+				for(var i=0; i<index.length; i++){
+					index[i].src = "images/" + (6 + i) + ".png";
+				}
+				page--;
+
+			} else if(page == 2){
+				for(var i=0; i<index.length; i++){
+					index[i].src = "images/" + (1 + i) + ".png";
+				}
+				page--;
+			}
+		});
+
+		after.addEventListener('click', function(e){
+			if(page == 1){
+				for(var i=0; i<index.length; i++){
+					index[i].src = "images/" + (6 + i) + ".png";
+				}
+				page++;
+			} else if(page == 2){
+				for(var i=0; i<index.length; i++){
+					index[i].src = "images/" + (11 + i) + ".png";
+				}
+				page++;
+			}
+		});
+	}
+</script>
+</head>
+<body>
+<img src="images/1.png" class="index">
+<img src="images/2.png" class="index">
+<img src="images/3.png" class="index">
+<img src="images/4.png" class="index">
+<img src="images/5.png" class="index"><br>
+<input type="button" value="<<" id="before">
+<input type="button" value=">>" id="after">
+</body>
+</html>

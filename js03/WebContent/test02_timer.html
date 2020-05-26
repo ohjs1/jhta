@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="newsbox"></div>
+</body>
+<script>
+	var vid =setInterval(intervalNews, 1000);
+	var i =0;
+	function intervalNews(){
+		var newsbox =document.querySelector("#newsbox");
+		var news =["뉴스내용1", "뉴스내용2", "뉴스내용3", "뉴스내용4"];
+		
+		newsbox.innerHTML =news[i++];
+		if(i==news.length) i =0;
+	}
+</script>
+</html>

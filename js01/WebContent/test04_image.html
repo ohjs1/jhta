@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var num1 =1;
+	function changeImg(){
+		var img1 =document.getElementById("img1");
+		img1.src ="images/" + (++num1) + ".png";
+		if(num1>=20){
+			num1 =0;
+		}
+	}
+	
+	var cnt =1;
+	function changeImg2(){
+		var img2 =document.getElementById("img2");
+		var img3 =document.getElementById("img3");
+		
+		if(cnt==1){
+			img2.src ="images/2.png";
+			img3.src ="images/1.png";
+			cnt =0;
+		} else {
+			img2.src ="images/1.png";
+			img3.src ="images/2.png";
+			cnt =1;
+		}
+	}
+	
+	function changeImg3(){
+		var temp ="";
+		var img2 =document.getElementById("img2");
+		var img3 =document.getElementById("img3");
+		temp =img2.src;
+		img2.src =img3.src;
+		img3.src =temp;
+	}
+</script>
+</head>
+<body>
+	<img src="images/1.png" id="img1"/>
+	<input type="button" value="이미지 변경" onclick="changeImg()"/>
+	<br><br>
+	<img src="images/1.png" id="img2"/>
+	<img src="images/2.png" id="img3"/>
+	<br>
+	<input type="button" value="이미지 바꾸기" onclick="changeImg2()"/>
+	<input type="button" value="이미지 바꾸기3333" onclick="changeImg3()"/>
+</body>
+</html>

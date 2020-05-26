@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	form span {
+		color: red;
+		font-size: 0.8em;
+		padding-left: 5px;
+	}
+</style>
+</head>
+<body>
+	&lt;회원&nbsp;&nbsp;가입&gt;<br>
+<form>
+	아이디(*) <input type="text" name="id" id="id" onfocus="showMsg(event)" onblur="clearMsg(event)"><span></span><br>
+	비밀번호(*) <input type="password" name="pwd" id="pwd" onfocus="showMsg(event)" onblur="clearMsg(event)"><span></span><br>
+	이메일 <input type="text" name="email" id="email"><br>
+	<input type="submit" value="가입">
+</form>
+</body>
+<script>
+	function showMsg(e){
+		e.target.nextSibling.innerHTML = "필수입력사항입니다.";
+		//이벤트를 발생시킨 객체의 이웃하는 다음요소인 span의 요소 
+	}
+
+	function clearMsg(e){
+		e.target.nextSibling.innerHTML = "";
+	}
+</script>
+</html>

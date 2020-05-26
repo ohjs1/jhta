@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.preview {
+		width: 200px;
+		opacity: 0.5;
+	}
+
+	#result {
+		width: 700px;
+	}
+</style>
+<script>
+	function resultImg(result, id){
+		var resultImg =document.querySelector("#result");
+		resultImg.innerHTML ="<img src='"+result+"'>";
+
+		var selectImg =document.querySelector("#" + id);
+		selectImg.style.opacity ="1.0";
+
+		var previewImg =document.querySelectorAll(".preview");
+		
+		for(var i=0; i<previewImg.length; i++){
+			if(id!=previewImg[i].id){
+				previewImg[i].style.opacity ="0.5";
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="warp">
+		<img src="images/1.jpg" class="preview" id="img1" onclick="resultImg(this.src, this.id)">
+		<img src="images/2.jpg" class="preview" id="img2" onclick="resultImg(this.src, this.id)">
+		<img src="images/3.jpg" class="preview" id="img3" onclick="resultImg(this.src, this.id)">
+		<img src="images/4.jpg" class="preview" id="img4" onclick="resultImg(this.src, this.id)">
+		
+		<div id="result"></div>
+	</div>
+	
+</body>
+</html>

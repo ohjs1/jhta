@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	var arr =[]; //빈 배열 만들기
+	function addArr(){
+		var name =document.getElementById("name");
+		arr.push(name.value);
+		name.value ="";
+		name.focus();
+	}
+	
+	//배열에 추가된 이름을 div#result에 출력되도록 해보세요.
+	function printArr(){
+		var result =document.getElementById("result");
+		
+		for(var i=0; i<arr.length; i++){
+			result.innerText +=arr[i]+"\n";
+		}
+	}
+</script>
+</head>
+<body>
+	이름 <input type="text" id="name"/>
+	<input type="button" value="저장" onclick="addArr()"/>
+	<input type="button" value="출력" onclick="printArr()"/>
+	<div id="result"></div>
+</body>
+</html>

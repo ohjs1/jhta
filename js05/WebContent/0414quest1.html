@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	label {
+		display: inline-block;
+		width: 150px;
+	}
+	#warp {
+		border: 2px solid black;
+		width: 450px;
+		height: 170px;
+	}
+
+</style>
+<script>
+	window.onload = function(){
+		var id = document.getElementById("id");
+		id.addEventListener('blur', function(){
+			// alert("dd");
+			if(id.value == ""){
+				id.nextSibling.innerHTML = "<font color='red'>아이디를 입력해주세요.</font>";
+			} else if( !(id.value.length>=5 && id.value.length<=12) ){
+				id.nextSibling.innerHTML = "<font color='red'>아이디는 5~12자 사이로 입력해주세요.</font>";
+			} else {
+				id.nextSibling.innerHTML ="";
+			}
+			
+		});
+
+		var pwd1 = document.getElementById("pwd1");
+		var pwd2 = document.getElementById("pwd2");
+
+		pwd2.addEventListener('blur', function(){
+			if(!( pwd1.value == pwd2.value )){
+				pwd2.nextSibling.innerHTML = "<font color='red'>비밀번호가 일치하지않습니다.</font>";
+			} else {
+				pwd2.nextSibling.innerHTML = "";
+			}
+		});
+
+		var email = document.getElementById("email");
+
+		email.addEventListener('blur', function(){
+			if(email.value.indexOf("@") == -1){
+				email.nextSibling.innerHTML = "<font color='red'>이메일을 형식에맞게 입력해주세요.</font>";
+			} else {
+				email.nextSibling.innerHTML = "";
+			}
+		});
+	}
+</script>
+
+</head>
+<body>
+<h1>회원가입 페이지</h1>
+<form action="">
+	<div id="warp">
+		<label for="id">아이디(*)</label>
+		<input type="text" id="id"><span>5~12자만 가능</span><br>
+		<label for="pwd">비밀번호</label>
+		<input type="password" id="pwd1"><br>
+		<label for="pwd">비밀번호 확인</label>
+		<input type="password" id="pwd2"><span></span><br>
+		<label for="addr">주소</label>
+		<input type="text" id="addr"> <br>
+		<label for="email">이메일</label>
+		<input type="text" id="email"><span></span><br><br>
+		<div id="sbmit">
+			<input type="submit" value="보내기">
+			<input type="reset" value="취소">
+		</div>
+	</div>
+</form>
+</body>
+</html>

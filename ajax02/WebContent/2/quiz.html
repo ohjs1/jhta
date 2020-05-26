@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr =null;
+	
+	function checkMember(){
+		xhr =new XMLHttpRequest();
+		xhr.onreadystatechange =callback;
+		
+		var email =document.getElementById("email").value;
+		var pwd =document.getElementById("pwd").value;
+		
+		console.log(email + ": email");
+		console.log(pwd + ": pwd");
+		
+		xhr.open('get', 'joincheck.jsp?email=' + email + "&pwd=" + pwd);
+		xhr.send();
+	}
+	
+	function callback(){
+		if(xhr.readyState==4 && xhr.status==200){
+			var email =document.getElementById("email");
+			var pwd =document.getElementById("pwd");
+			var xml =xhr.responseXML;
+			var id =xml.getElementsByTagName("result")[0].firstChild.nodeValue;
+			var result =document.getElementById("result");
+			result.innerHTML =id;
+		}
+	}
+</script>
+</head>
+<body>
+<!-- ajax를 사용해서 이메일과 비밀번호가 일치하면 해당 회원의 아이디를 출력해 보세요. -->
+<h1>아이디찾기</h1>
+이메일 <input type="text" id="email" /><br>
+비밀번호 <input type="password" id="pwd" /><br>
+<input type="button" value="찾기" onclick="checkMember()"/>
+<div id="result"></div>
+</body>
+</html>

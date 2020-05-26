@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인터넷 서점</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+	label {
+		display: inline-block;
+		width: 130px;
+	}
+
+	#joinform {
+		margin-left: 300px;
+		padding-top: 200px;
+	}
+
+	h1 {
+		margin-bottom: 50px;
+	}
+
+	label {
+		margin-bottom: 5px;
+	}
+
+	span {
+		margin-left: 20px;
+	}
+
+	input {
+		width: 250px;
+	}
+</style>
+<script>
+	var chkId = true;
+	var chkPwd = true;
+	var chkEmail = true;
+	window.onload = function(){
+		var id = document.getElementById("id");
+		var pwd1 = document.getElementById("pwd1");
+		var pwd2 = document.getElementById("pwd2");
+		var email = document.getElementById("email");
+
+		if(id.value=="" || pwd1.value=="" || pwd2.value=="" || email.value==""){
+			chkId = false;
+			chkPwd = false;
+			chkEmail = false;
+		}
+
+
+		id.addEventListener('blur', function(){
+			// alert("dd");
+			if(id.value == ""){
+				id.nextSibling.innerHTML = "<font color='red'>아이디를 입력해주세요.</font>";
+				chkId = false;
+			} else if( !(id.value.length>=5 && id.value.length<=12) ){
+				id.nextSibling.innerHTML = "<font color='red'>아이디는 5~12자 사이로 입력해주세요.</font>";
+				chkId = false;
+			} else {
+				id.nextSibling.innerHTML ="";
+				chkId = true;
+			}
+			
+		});
+
+
+		pwd2.addEventListener('blur', function(){
+			if(!( pwd1.value == pwd2.value )){
+				pwd2.nextSibling.innerHTML = "<font color='red'>비밀번호가 일치하지않습니다.</font>";
+				 chkPwd = false;
+			} else {
+				pwd2.nextSibling.innerHTML = "";
+				 chkPwd = true;
+			}
+		});
+
+
+		email.addEventListener('blur', function(){
+			if(email.value.indexOf("@") == -1){
+				email.nextSibling.innerHTML = "<font color='red'>이메일을 형식에맞게 입력해주세요.</font>";
+				chkEmail = false;
+			} else {
+				email.nextSibling.innerHTML = "";
+				chkEmail = true;
+			}
+		});
+	}
+			function validate(e){
+				if(!( chkId && chkPwd && chkEmail )){
+					alert("양식에 맞게 입력해주세요.");
+					e.preventDefault();
+				} else {
+					alert("회원가입 성공!");
+				}
+			}
+
+</script>
+</head>
+<body>
+<div id="warp">
+	<div id="header">
+			<a href="book_main.html"><img src="images/logo.jpg" alt="로고"></a>
+			<a href="member_join.html"><img src="images/join.jpg" alt="회원가입"></a>
+			<a href="login.html"><img src="images/login.jpg" alt="로그인"></a>
+	</div>
+	<div id="content">
+		<div id="joinform">
+			<h1>회원가입 페이지</h1>
+			<form action="join_s.html" onsubmit="validate(event)">
+				<label for="id">아이디(*)</label>
+				<input type="text" id="id"><span>5~12자만 가능</span><br>
+				<label for="pwd">비밀번호</label>
+				<input type="password" id="pwd1"><br>
+				<label for="pwd">비밀번호 확인</label>
+				<input type="password" id="pwd2"><span></span><br>
+				<label for="addr">주소</label>
+				<input type="text" id="addr"> <br>
+				<label for="email">이메일</label>
+				<input type="text" id="email"><span></span><br><br>
+				<div id="sbmit">
+					<input type="submit" value="보내기" style="width:70px;">
+					<input type="reset" value="취소" style="width:70px;">
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="footer">
+		<p>
+			copyright(c) Book Market
+		</p>
+	</div>
+</div>
+</body>
+</html>
