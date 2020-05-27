@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<!-- 3. go 버튼을 누르면 현재 left위치에서 50씩 더해져서 이동되도록 만들어 보세요. -->
+<input type="button" value="go" id="imgmove"/><br>
+<img src="../images/001.jpg" id="imgm"/>
+</body>
+
+<script type="text/javascript">
+	let mint = 0;
+	$("#imgmove").click(function(){
+		$("#imgm").css("position", "absolute");
+		$("#imgm").css("left", mint += 50);
+	});
+</script>
+</html>

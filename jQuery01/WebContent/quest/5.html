@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+<style>
+	.imgs {
+		width: 250px;
+		height: 150px;
+	}
+	
+	#header {
+		background-color: gray;
+		width: 1050px;
+	}
+	
+</style>
+</head>
+<body>
+<!-- 5. html페이지에 아래와 같이 보여지도록 css를 추가하고 작은이미지에 마우스오버시 큰이미지에 보이도록 해보세요.  -->
+<div id="header">
+	<img src="../images/1.jpg"  class="imgs"/>
+	<img src="../images/2.jpg"  class="imgs"/>
+	<img src="../images/3.jpg"  class="imgs"/>
+	<img src="../images/4.jpg"  class="imgs"/>
+</div>
+<div id="result"></div>
+</body>
+
+<script type="text/javascript">
+	$(".imgs").hover(function(){
+		var code = "<img src='" + $(this).prop("src") + "' class='rimg'>";
+		$("#result").html(code);
+		$(".rimg").css({
+			width : 1050,
+			height : 650
+		});
+	});
+</script>
+</html>

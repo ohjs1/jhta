@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+	<select id="select">
+		<option value="1.jpg">풍경이미지1</option>
+		<option value="2.jpg">풍경이미지2</option>
+		<option value="3.jpg">풍경이미지3</option>
+	</select>
+	<img src="images/1.jpg" id="img1" style="width:300px; height: 200px"/>
+</body>
+<script type="text/javascript">
+	$("#select").change(function(){
+		//let filename = $("#select option:selected").val();
+		//console.log(filename);
+		//$("#img1").prop("src", "images/" + filename);
+		
+		var src = "images/" + $(this).val();
+		$("#img1").prop("src", src);
+	});
+</script>
+</html>

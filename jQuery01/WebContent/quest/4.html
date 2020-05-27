@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<!-- 4. 적용할 css값을 입력받아 div에 적용되도록 해보세요. -->
+가로 <input type="text" id="wids"/><br>
+세로 <input type="text" id="heih"/><br>
+색상 <input type="text" id="cl"/><br>
+<input type="button" value="적용" id="res"/><br>
+<div id="result"></div>
+</body>
+
+<script type="text/javascript">
+	$("#res").click(function(){
+		var wids = $("#wids").val();
+		var heih = $("#heih").val();
+		var cl = $("#cl").val();
+		
+		//console.log(wids);
+		//console.log(heih);
+		//console.log(cl);
+		
+		$("#result").css({
+			width : wids,
+			height : heih,
+			backgroundColor : cl
+		});
+	});
+</script>
+</html>

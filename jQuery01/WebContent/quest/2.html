@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+<style type="text/css">
+	.content {
+		background-color: green;
+		color: white;
+		width: 150px;
+	}
+	
+	#result {
+		background-color: orange;
+		width: 462px;
+		height: 350px;
+		margin-top: 15px;
+	} 
+</style>
+</head>
+<body>
+<!-- 메뉴를 클릭하면 해당 메뉴에 해당해는 콘텐츠가  div에 보여지도록 만들어 보세요. -->
+<input type="button" value="도서" id="menu1"/>
+<input type="button" value="영화" id="menu2"/>
+<input type="button" value="음악" id="menu3"/><br>
+<div id="result"></div>
+</body>
+
+<script type="text/javascript">
+	$("#menu1").click(function(){
+		$("#result").text("도서에 대한 내용..");
+	});
+	
+	$("#menu2").click(function(){
+		$("#result").text("영화에 대한 내용..");
+	});
+	
+	$("#menu3").click(function(){
+		$("#result").text("음악에 대한 내용..");
+	});
+</script>
+</html>
+
+
+
+
+

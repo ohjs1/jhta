@@ -9,8 +9,10 @@
 	회원이름 <input type="text" id="name1" /><br>
 	회원주소 <input type="text" id="addr" size="50"/><br>
 	<input type="checkbox" id="chr" />위와 동일<br>
-	회원이름 <input type="text" id="name2" /><br>
-	회원주소 <input type="text" id="addr2" size="50"/><br>
+	받는사람 <input type="text" id="name2" /><br>
+	받는주소 <input type="text" id="addr2" size="50"/><br>
+	<input type="button" value="이미지2배크게하기" id="btn1"/><br>
+	<img src="images/1.png" id="img1" style="width:100px; height:100px"/>
 </body>
 <script type="text/javascript">
 	$("#chr").click(function(){
@@ -29,5 +31,19 @@
 			$("#addr2").prop("value", "");
 		}
 	});
+	
+	//이미지2배크게하기
+	$("#btn1").click(function(){
+		let imgWidth = $("#img1").width();
+		let imgHeight = $("#img1").height();
+		
+		
+		$("#img1").css({
+			width : imgWidth*2,
+			height : imgHeight*2
+		});
+	});
 </script>
 </html>
+
+

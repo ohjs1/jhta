@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<!-- 두수합을 구하는 jQuery 구하시오 -->
+<input type="text" id="sum1"/> + <input type="text" id="sum2"/> = <input type="text" id="result"/> 
+<input type="button" value="합구하기" id="cal"/>
+</body>
+
+<script type="text/javascript">
+	$("#cal").click(function(){
+		let sum1 = parseInt( $("#sum1").val() );
+		let sum2 = parseInt( $("#sum2").val() );
+		$("#result").val(sum1 + sum2);
+	});
+</script>
+</html>
