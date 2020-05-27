@@ -4,8 +4,44 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	/*
+	window.onload = function(){
+		var btn1 = document.getElementById("btn1");
+		btn1.onclick = function(){
+			alert('버튼클릭!');
+		}
+	}
+	*/
+	$(document).ready(function(){
+		//alert('jQuery 준비완료!');
+		$('#btn1').click(function(){
+			alert("버튼을 클릭했군요!");
+		});
+		
+		$("#btn2").click(function(){
+			//$("#div1").hide(1000);
+			$("#div1").fadeOut(1000);
+		});
+		
+		$("#btn3").click(function(){
+			$("#div1").fadeIn(1000);
+		});
+		
+		$("#btn4").click(function(){
+			$("#div1").toggle(1000);
+		});
+	});
+	
+</script>
 </head>
 <body>
-
+	<input type="button" value="btn1" id="btn1"/>
+	<input type="button" value="btn2" id="btn2" />
+	<input type="button" value="btn3" id="btn3" />
+	<input type="button" value="toggle" id="btn4" />
+	<div id="div1" style="width:300px; height:200px; background-color: orange;">
+		<h1>안녕 jQuery!</h1>
+	</div>
 </body>
 </html>

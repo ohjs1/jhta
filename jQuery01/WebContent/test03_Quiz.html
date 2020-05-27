@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			$("#box1").css({
+				backgroundColor : "skyblue",
+				width : 500,
+				height : 500
+			});
+		});
+		
+		$("#btn2").click(function(){
+			var bgcolor = $("#box1").css("background-color");
+			var w = $("#box1").css("width");
+			var h = $("#box1").css("height");
+			
+			$("#box2").css({
+				backgroundColor : bgcolor,
+				width : w,
+				height : h
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<!-- btn1을 클릭하면 box1의 배경색상,가로,세로길이를 임의의 값으로 변경해보세요. -->
+	<input type="button" value="css적용하기" id="btn1"/>
+	<div id="box1">
+		<h1>안녕 제이쿼리!</h1>
+	</div>
+	
+	<!-- btn2을 클릭하면 box1의 배경색상,가로,세로길이와 같은 값으로 box2를 설정해보세요. -->
+	<input type="button" value="css적용하기" id="btn2"/>
+	<div id="box2">
+		<h1>안녕 제이쿼리!</h1>
+	</div>
+</body>
+</html>

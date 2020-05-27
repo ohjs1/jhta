@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	회원이름 <input type="text" id="name1" /><br>
+	회원주소 <input type="text" id="addr" size="50"/><br>
+	<input type="checkbox" id="chr" />위와 동일<br>
+	회원이름 <input type="text" id="name2" /><br>
+	회원주소 <input type="text" id="addr2" size="50"/><br>
+</body>
+<script type="text/javascript">
+	$("#chr").click(function(){
+		let name = $("#name1").prop("value");
+		let addr = $("#addr").prop("value");
+		
+		$("#name2").prop("value", name);
+		$("#addr2").prop("value", addr);
+		
+		//체크해제된 경우
+		let check = $("#chr").prop("checked");
+		if(!check){
+			//$("#name1").prop("value", "");
+			//$("#addr").prop("value", "");
+			$("#name2").prop("value", "");
+			$("#addr2").prop("value", "");
+		}
+	});
+</script>
+</html>
