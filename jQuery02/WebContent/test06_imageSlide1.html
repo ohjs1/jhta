@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test06_imageSlide1.html</title>
+<style>
+	*{margin:0px;padding: 0px}
+	#imgslide ul li img{width:136px;height: 196px;margin: 2px}
+	#parent{width:700px;height: 200px;background-color: orange;
+	position: relative;top:30px;left:200px;overflow: hidden;}
+	#imgslide{width:1400px;height: 200px;position: absolute;left:0px;}	
+	#imgslide ul li{list-style: none;position: absolute;}
+</style>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#imgslide ul li").each(function(n){
+			var left=n*140;
+			$(this).css("left",left);
+		});
+		setInterval(function(){
+			$("#imgslide ul li").each(function(n){
+				var moveLeft=parseInt($(this).css("left"))-140;
+				$(this).animate({
+					left:moveLeft
+				},1000,function(){
+					if(moveLeft<=-700){
+						$(this).css("left",700);
+					}
+				});
+			});
+		}, 2000);	
+	});
+</script>
+</head>
+<body>
+<div id="parent">
+	<div id="imgslide">
+		<ul>
+			<li><img src="images/slide1.png"></li>
+			<li><img src="images/slide2.png"></li>
+			<li><img src="images/slide3.png"></li>
+			<li><img src="images/slide4.png"></li>
+			<li><img src="images/slide5.png"></li>
+			<li><img src="images/slide6.png"></li>
+			<li><img src="images/slide7.png"></li>
+			<li><img src="images/slide8.png"></li>
+			<li><img src="images/slide9.png"></li>
+			<li><img src="images/slide10.png"></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

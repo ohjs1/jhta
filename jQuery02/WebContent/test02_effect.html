@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<input type="button" value="숨기기" id="btn1" />
+<input type="button" value="보이기" id="btn2" />
+<div id="box1" style="width: 300px; height: 200px; background-color: orange;">
+	<img src="images/1.png"/>
+</div>
+<input type="button" value="이동" id="btn3" /><br>
+<input type="button" value="이동2" id="btn4" /><br>
+<input type="button" value="이동3" id="btn5" /><br>
+<!-- 이미지의 위치를 left:500, top:200의 위치로 이동시키고 이동완료후 이미지가 사라지도록 해보세요. -->
+<img src="images/2.png" id="img1"  style="position:relative; top:10px;"/>
+
+<!-- btn6을 클릭하면 이미지의 크기를 2배크게 해보세요. -->
+<input type="button" value="2배크게하기" id="btn6" />
+</body>
+<script type="text/javascript">
+	$("#btn6").click(function(){
+		var w = $("#img1").width()*2;
+		var h = $("#img1").height()*2;
+		$("#img1").animate({
+			width : w,
+			height : h
+		});
+	});
+
+	$("#btn5").click(function(){
+		$("#img1").animate({
+			left: 500,
+			top: 200
+		}, function(){
+			//$(this).css("display", "none");
+			$(this).fadeOut(400);
+		})
+	});
+
+	$("#btn1").click(function(){
+		var n = 1;
+		$("#box1").slideUp(1000, function(){
+			//alert("숨기기작업완료");
+			$("#box1 img").prop("src", "images/" + ( ++n ) + ".png");
+			if(n>10) n=0;
+		});
+	});
+	
+	$("#btn2").click(function(){
+		$("#box1").slideDown(1000);
+	});
+	
+	$("#btn3").click(function(){
+		/*$("#img1").css({
+			left: 1000
+		});*/
+		$("#img1").animate({
+			left: 1000
+		}, 1000);
+	});
+	
+	$("#btn4").click(function(){
+		$("#img1").animate({
+			left: 1000
+		}, 500, function(){
+			$(this).css({
+				left: 0
+			});
+		});
+	});
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<style type="text/css">
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#parent {
+	width: 700px;
+	height: 200px;
+	background-color: orange;
+	position: relative;
+	left: 200px;
+	top: 30px;
+	overflow: hidden;
+}
+
+#imgslide {
+	width: 1120px;
+	height: 200px;
+	position: absolute;
+	left: 0px;
+}
+
+#imgslide ul li img {
+	width: 136px;
+	height: 196px;
+	margin: 2px;
+}
+
+#imgslide ul li {
+	float: left;
+	list-style: none;
+}
+</style>
+</head>
+<body>
+	<div id="parent">
+		<div id="imgslide">
+			<ul>
+				<li><img src="images/001.jpg" /></li>
+				<li><img src="images/002.jpg" /></li>
+				<li><img src="images/003.jpg" /></li>
+				<li><img src="images/004.jpg" /></li>
+				<li><img src="images/005.jpg" /></li>
+				<li><img src="images/006.jpg" /></li>
+				<li><img src="images/007.jpg" /></li>
+				<li><img src="images/008.jpg" /></li>
+			</ul>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	var msize = 140;
+	setInterval(() => {
+		var imgmove = parseInt( $('#imgslide').css('left') ) - msize;
+		console.log(imgmove);
+		$('#imgslide').animate({
+			left: imgmove
+		}, function(){
+			if(imgmove <= -700){
+				msize = -140;
+			} else if(imgmove == 0){
+				msize = 140;
+			}
+		});
+	}, 1000);
+</script>
+</html>

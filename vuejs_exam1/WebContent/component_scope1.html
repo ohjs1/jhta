@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<my-component1></my-component1>
+	<my-component2></my-component2>
+</div>
+</body>
+<script type="text/javascript">
+	//첫번째 컴포넌트 내용
+	var cm1 = {
+			template : '<div>첫번째 지역 컴포넌트 : {{ cmp1Data }}</div>',
+			data : function(){
+				return{
+					cmp1Data : 100
+				}
+			}
+	};
+	
+	//두번째 컴포넌트 내용
+	var cm2 = {
+			template : '<div>두 번째 지역 컴포넌트 : {{ cmp2Data }}</div>',
+			data : function(){
+				return{
+					//cm1.data.cmp1Data
+					//스코프 범위가 다르기때문에 다른 컴포넌트의 내용을 참조할수없다.
+				}
+			}
+	};
+	
+	//지역 컴포넌트 등록
+	new Vue({
+		el: '#app',
+		components: {
+			'my-component1' : cm1,
+			'my-component2' : cm2
+		}
+	});
+</script>
+</html>
