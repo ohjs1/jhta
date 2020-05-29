@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#items").on('change', function(){
+			$("#imgs").prop("src", $(this).val());
+		});
+		
+		$("#inputImg").on('click', function(){
+			var imgsrc = $("#imgs").prop("src");
+			$("#result").append(`<img src='${imgsrc}' class='imgs'>`);
+		});
+		
+		$("#result").on('dblclick', '.imgs', function(){
+			$(this).remove();
+		});
+	});
+</script>
+</head>
+<body>
+<select id="items" size="5" style="width:250px; height:250px">
+	<option value="images/1.png">이미지1</option>
+	<option value="images/2.png">이미지2</option>
+	<option value="images/3.png">이미지3</option>
+	<option value="images/4.png">이미지4</option>
+</select>
+<div id="preview"><img src=""/ id="imgs"></div>
+<input type="button" value="넣기" id="inputImg"/>
+<div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<form action="join.jsp">
+	아이디(*) <input type="text" name="id" class="required" /><span></span><br>
+	비밀번호(*) <input type="password" name="pwd" class="required" /><span></span><br>
+	이메일 <input type="text" name="email" /><br>
+	<input type="submit" value="회원가입" /><br>
+</form>
+<a href="https://www.naver.com">네이버로 가자</a>
+
+	<script type="text/javascript">
+		$("a").click(function(e){
+			//이벤트가 발생되었을때 기본적으로 수행하는 동작을 하지 못하게 함
+			e.preventDefault();
+		});
+	
+		$("form").submit(function(e){
+			var id = $("input[name='id']").val();
+			
+			if(id == ""){
+				alert("아이디를 입력하세요!");
+				e.preventDefault(); //서버로 전송 취소
+			}
+			
+			//전송되는 파라미터를 쿼리스트링문자열로 얻어오기
+			var param = $(this).serialize();
+			alert(param);
+		});
+	</script>
+</body>
+</html>

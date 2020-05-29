@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<form action="join.jsp">
+	아이디(5~8자사이) <input type="text" name="id" /><br>
+	비밀번호 <input type="password" name="pwd"/><br>
+	비밀번호확인 <input type="password" name="pwd1"/><br>
+	취미<br>
+	<input type="checkbox" value="여행" name="hobby"/>여행
+	<input type="checkbox" value="음악" name="hobby"/>음악
+	<input type="checkbox" value="독서" name="hobby"/>독서
+	<br>
+	<input type="submit" value="가입" />
+</form>
+
+
+<script type="text/javascript">
+	var idchk = false;
+	$("input[name='id']").on({
+		focusout: function(){
+			var id = $("input[name='id']").val();
+			if(id.length >= 5 && id.length <=8){
+				idchk = true;
+			} else {
+				alert("아이디는 5~8자 사이");
+				idchk = false;
+			}
+		}
+	});
+	
+	var pwdchk = false;
+	$("input[name='pwd1']").on({
+		focusout: function(){
+			var pwd1 = $("input[name='pwd']").val();
+			var pwd2 = $("input[name='pwd1']").val();
+			
+			console.log(pwd1 + ">>>pwd1");
+			console.log(pwd2 + ">>>pwd2");
+			
+			if(pwd1==pwd2 && pwd1!=""){
+				pwdchk = true;
+			} else {
+				alert("비밀번호가 다릅니다.")
+				pwdchk = false;
+			}
+		}
+	});
+	
+	var checkboxchk = false;
+	$("input[name='hobby']").click(function(){
+		$(this).each(function(){
+			if($("#hobby input:checkbox").prop("checked", $(this).prop("checked"))){
+				checkboxchk = true;
+				return;
+			}
+			checkboxchk =false;
+		});
+	});
+	
+	$("form").submit(function(e){
+		if(idchk && pwdchk && checkboxchk){
+			return;
+		} else {
+			alert("체크박스는 하나이상 체크해줘야합니다.");
+			e.preventDefault();
+		}
+	});
+</script>
+</body>
+</html>

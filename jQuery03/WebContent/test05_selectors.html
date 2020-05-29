@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("[value='버튼1']").click(function(){
+			alert('test');
+		});
+		
+		//value속성이 홍이 포함
+		$("input[value*='홍']").click(function(){
+			alert($(this).val());
+		});
+		
+		//value속성이 홍으로 시작
+		$("input[value^='홍']").click(function(){
+			alert('asdf');
+		});
+		
+		$("ul li:even").css("background-color", "yellow");
+		$("ul li:odd").css("background-color", "green");
+		$("ul li:first").css("color", "skyblue");
+		$("ul li").first().css("font-size", 40);
+		$("ul li:last").css("color", "pink");
+		//ul자식 li중에 1번째 요소에 적용
+		$("ul li:nth-child(1)").css("background-color", "gray");
+	});
+</script>
+</head>
+<body>
+<input type="button" value="버튼1" />
+<input type="text" value="홈길동1"/>
+<input type="text" value="홍길동2"/>
+<input type="text" value="길동3"/>
+<div id="box1">
+	<ul>
+		<li>진달래1</li>
+		<li>ㅁ래2</li>
+		<li>ㅇ래3</li>
+		<li>ㄴㅇ달래4</li>
+	</ul>
+</div>
+전체선택 <input type="checkbox" value="all" id="chkAll" /><br />
+<input type="button" value="확인" id="btn1" /><br>
+<div id="hobby">
+	취미<br>
+	<input type="checkbox" value="영화" />영화
+	<input type="checkbox" value="독서" />독서
+	<input type="checkbox" value="여행" />여행
+	<input type="checkbox" value="게임" />게임
+</div>
+<div id="hobbylist"></div>
+</body>
+	<script type="text/javascript">
+	//버튼을 클릭했을때 선택된 취미를 div#hobbylist에 추가되도록 해보세요.
+	
+		$("#btn1").click(function(){
+			var len = $("input:checked").length;
+			
+			$("#hobbylist").empty(); //모든 자식요소 제거
+			$("input:checked").each(function(){
+				var hb = $(this).val();
+				$("#hobbylist").append(`<p>${hb}</p>`);
+			});
+		});
+		
+	
+		$("#chkAll").click(function(){
+			$("#hobby input:checkbox").prop("checked", $(this).prop("checked"));
+		});
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
