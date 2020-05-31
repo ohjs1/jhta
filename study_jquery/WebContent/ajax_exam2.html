@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="text" id="id">
+	<input type="password" id="pwd">
+	<input type="button" value="보내기" onclick="form_exam2()">
+	<div id="result"></div>
+</body>
+
+<script type="text/javascript">
+	//ajax json으로 응답
+	var xhr = null;
+	function form_exam2(){
+	xhr = new XMLHttpRequest();
+	var id = document.getElementById("id").value;
+	var pwd = document.getElementById("pwd").value;
+	var result = document.getElementById("result");
+	
+	
+	
+	xhr.onreadyStatechange = function(){
+			console.log("sdf2");
+		
+		
+		if(xhr.status==200 && xhr.readyState==4){
+			var data = xhr.responseText;
+			var json = JSON.parse(data);
+			console.log(json[0].id);
+			console.log(json[0].pwd);
+			
+			result.innerHTML = json[0].id + "<br>" + json[0].pwd;
+		}
+	}
+	xhr.open("get", `ajax_example2.jsp?id=${id}&pwd=${pwd}`, true);
+	xhr.send();
+	}
+
+</script>
+</html>

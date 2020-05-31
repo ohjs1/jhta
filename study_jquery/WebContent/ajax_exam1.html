@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="text" id="id">
+	<input type="password" id="pwd">
+	<input type="button" value="보내기" onclick="form_exam1()">
+</body>
+<script type="text/javascript">
+	//ajax 예제
+	var xhr = null;
+	function form_exam1(){
+		var id = document.getElementById("id").value;
+		var pwd = document.getElementById("pwd").value;
+		
+		console.log(`id: ${id}, pwd: ${pwd}`);
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = on_exam;
+		xhr.open('get', `ajax_example1.jsp?id=${id}&pwd=${pwd}`, true);
+		xhr.send();
+	}
+	
+	function on_exam(){
+		if(xhr.readyState == 4 && xhr.status == 200){
+			var xml2 = xhr.responseXML;
+			var result = xml2.getElementById("result").firstChild.nodeValue;
+			
+			console.log(result);
+		}
+	}
+</script>
+</html>
