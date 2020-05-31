@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<meta charset="UTF-8">
+<title>과제</title>
+<style type="text/css">
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
+	#imageBox {
+		width: 1020px;
+		background-color: silver;	
+		margin: auto;
+	}
+	
+	#imageHeader img {
+		width: 250px;
+		height: 150px;
+		opacity: 0.5;
+	}
+	
+	#imageHeader {
+		position: relative;
+	}
+	
+	
+	h2 {
+		position: absolute;
+		left: 250px;
+		top: 370px;
+		width: 550px;
+		font-size: 3.6em;
+		font-weight: bold;
+		color: white;
+		display: none;
+	}
+</style>
+</head>
+<body>
+	<div id="imageBox">
+		<div id="imageHeader">
+			<img src="images/1.jpg" id="1">
+			<img src="images/2.jpg" id="2">
+			<img src="images/3.jpg" id="3">
+			<img src="images/4.jpg" id="4">
+		<h2>Beautiful Picture</h2>
+		</div>
+		<div id="imageContent">
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	$("#imageHeader img").hover(function(){
+		//alert('test');
+		var imgs = $(this).prop("src");
+		var imgnum = $(this)[0].id;
+
+		$(this).css({
+			opacity: 1
+		});
+		
+		console.log(imgnum);
+		
+		$("#imageContent").html(`<img src='${imgs}' style='width: 1020px;' class='imgs'>`);
+		$("h2").html(`Beautiful Picture ${imgnum}`);
+		$("h2").slideDown("slow", function(){
+			$("h2").css("display", "block");
+		});
+		
+	}, function(){
+		$(this).css({
+			opacity: 0.5
+		});
+		
+		$("#imageContent > img").remove();
+		$("h2").css("display", "none");
+	});
+</script>
+</html>
