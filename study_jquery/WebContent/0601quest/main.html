@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>우리우리 영화관</h1>
+<ul>
+	<li><a href="movieDetail1.jsp">토르</a></li>
+	<li><a href="movieDetail2.jsp">기생충</a></li>
+</ul>
+<div id="detail"></div>
+<div id="comments"></div>
+
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$("ul li a").click(function(e){
+		e.preventDefault();
+		//console.log("test");
+		var href = $(this).prop("href");
+		
+		$("#detail").load(href, function(){
+			//console.log("test");
+			
+		});
+	});
+</script>
+</body>
+</html>

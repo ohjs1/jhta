@@ -11,7 +11,7 @@
     pageEncoding="UTF-8"%>
 <%
 	String sdate = request.getParameter("sdate");
-	System.out.println(sdate);
+	System.out.println(sdate); 
 	
 	
 	Connection con = null;
