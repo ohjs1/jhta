@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="date" id="sdate"><input type="button" value="유저정보 조회" onclick="onUserData()">
+	<div id="result"></div>
+	
+	<script type="text/javascript">
+		//가입일 요청
+		var xhr = null;
+		function onUserData(){
+			xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4 && xhr.status == 200){
+					var data = xhr.responseText;
+					var json = JSON.parse(data);
+					var result = document.getElementById("result");
+					
+					for(var i=0; i<json.length; i++){
+						result.innerHTML += `id : ${json[i].id} <br> 비밀번호 : ${json[i].pw} <br> 이메일 : ${json[i].email}<br><hr>`;
+					}
+				}
+			}
+			var sdate = document.getElementById("sdate").value;
+			
+			xhr.open('get', 'exam1_server.jsp?sdate='+sdate, true);
+			xhr.send();
+		}
+	</script>
+</body>
+</html>

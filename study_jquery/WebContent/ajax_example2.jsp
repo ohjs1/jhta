@@ -12,7 +12,7 @@
 		JSONObject json =new JSONObject();
 		json.put("id", id);
 		json.put("pwd", pwd);
-		response.setContentType("text/plain; hcarset=utf-8");
+		response.setContentType("text/plain; charset=utf-8");
 		PrintWriter pw = response.getWriter();
 		pw.print(json);
 	%>

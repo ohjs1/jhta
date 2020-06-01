@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<h1>회원가입</h1>
+<form action="idcheck.jsp" method="post">
+	아이디 <input type="text" name="id" id="id"/>
+	
+	<input type="button" value="중복검사" onclick="idcheck()"/>
+	
+	<span id="idcheck"></span>
+	<br>
+	비밀번호 <input type="password" name="pwd"/><br>
+	이메일 <input type="text" name="email"/><br>
+	<input type="submit" value="가입" />
+</form>
+
+	<script type="text/javascript">
+		function idcheck(){
+			var id = $("#id").val();
+			$.ajax({
+				url: "idcheck.jsp?id=" + id,
+				dataType: "xml",
+				success: function(data){
+					var using = $(data).find("using").text();					
+					console.log(using);
+					
+					if(using == 'true'){
+						$("#idcheck").html(`<p>사용가능 한 아이디 입니다.</p>`);
+					} else {
+						$("#idcheck").html(`<p>사용불가 아이디 입니다.</p>`);
+					}
+				}
+			});
+		}
+	</script>
+</body>
+</html>

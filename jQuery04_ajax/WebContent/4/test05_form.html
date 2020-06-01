@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+</head>
+<body>
+	<form id="frm" action="idcheck.jsp">
+		비밀번호 <input type="password" id="pwd"><br>
+		이메일 <input type="text" id="email"><br>
+		<input type="submit" value="아이디찾기">
+	</form>
+	<div id="result"></div>
+	
+	<script type="text/javascript">
+		$("#frm").submit(function(e){
+			e.preventDefault(); //submit이 안됨
+			
+			var pwd = $("#pwd").val();
+			var email = $("#email").val();
+			
+			//ajax로 데이터 전송받기
+			$.ajax({
+				url: "idcheck.jsp",
+				data: {
+					"pwd" : pwd,
+					"email" : email
+				},
+				success: function(data){
+					var using = $(data).find("using").text();
+					if(eval(using) == true){
+						let id = $(data).find("id").text();
+						$("#result").html("id : " + id);
+					} else {
+						$("#result").html("아이디가 없습니다.");
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html>

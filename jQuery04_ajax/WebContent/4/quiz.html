@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+</head>
+<body>
+	<!-- 이메일과 비밀번호를 입력해서 아이디를 조회해서 div#result에 표시 
+		id는 앞글자 3자리만 표시 abc***
+	-->
+	<h1>아이디 찾기</h1>
+	이메일 <input type="text" id="email"><br>
+	비밀번호 <input type="password" id="pwd"><br>
+	<input type="button" value="아이디찾기" id="btn1">
+	<div id="result"></div>
+	
+	<script type="text/javascript">
+		$("#btn1").on('click', function(){
+			var email = $("#email").val();
+			var pwd = $("#pwd").val();
+			
+			$.ajax({
+				url: "quiz_result.jsp?email=" + email + "&pwd=" + pwd,
+				dataType: "xml",
+				success: function(data){
+					//console.log(data);
+					var result = $(data).find("result").text();
+					var arr = result.split('');
+					var idr = "";
+					
+					//console.log(arr.length);
+					
+					for(var i=0; i<arr.length; i++){
+						if(arr[0] != "#"){
+							if(i < 3){
+								arr[i] = "*";
+								idr += arr[i];
+							} else {
+								idr += arr[i];
+							}
+						} else {
+							idr = "아이디가 없습니다.";
+						}
+					}
+					
+					$("#result").html(`${idr}`);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
