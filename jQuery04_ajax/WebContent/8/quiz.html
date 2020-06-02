@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 회원번호를 입력받아 회원정보를 ajax를 사용해서 조회
+members테이블 연동 -->
+	회원번호 <input type="text" id="num" />
+	<input type="button" value="회원정보 조회하기" id="btn1"/><br />
+	<div id="result"></div>
+	
+	
+	
+	<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$("#btn1").click(function(){
+			//alert('dd');
+			var snum = $("#num").val();
+			console.log(snum);
+			$.ajax({
+				url: "quiz_server.jsp",
+				dataType: "json",
+				data: { "snum": snum }, //data는 json형태로 넘겨줘야함
+				success: function( data ){
+					
+					$("#result").html("");
+					
+					for(var i=0; i<data.length; i++){
+						$("#result").append(`
+								<hr>
+								글번호: ${data[i].num} <br>
+								이름: ${data[i].name} <br>
+								폰번호: ${data[i].phone} <br>
+								주소: ${data[i].addr} <br>
+								가입일: ${data[i].regdate} <br>
+								<hr>
+								`);
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html>

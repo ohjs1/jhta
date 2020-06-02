@@ -19,10 +19,19 @@
 		e.preventDefault();
 		//console.log("test");
 		var href = $(this).prop("href");
+		var title = $(this).text();
+		console.log(title);
 		
 		$("#detail").load(href, function(){
 			//console.log("test");
-			
+			$.ajax({
+				url: "/movie/comments",
+				data: title,
+				dataType: "json",
+				success: function( data ){
+					
+				}
+			});
 		});
 	});
 </script>

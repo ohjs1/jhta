@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<style type="text/css">
+	body {
+		font-size: 0.8em;
+		
+	}
+	h1 {
+		text-align: center;
+	}
+	
+	input[type='text'], label {
+		margin-bottom: 12px;
+		padding: .4em;
+		width: 95%:
+	}
+</style>
+</head>
+<body>
+	<h1 id="open_dlg">일정생성</h1>
+	<div id="list"></div>
+	<div id="mydlg" title="나의 대화상자">
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis neque est eaque praesentium nihil eius officia illo voluptate incidunt natus.
+		</p>
+	</div>
+	
+	<div id="dlg1" title="일정">
+		<h1>일정정보 입력</h1>
+		<label for="ename">일정이름</label>
+		<input type="text" id="ename" />
+		<br>
+		<label for="edate">일정날짜</label>
+		<input type="text" id="edate" />
+	</div>
+	
+	
+	<script type="text/javascript">
+		//$("#mydlg").dialog();
+		$("#edate").datepicker();
+		
+		
+		$("#dlg1").dialog({
+			autoOpen: false,
+			modal: true,
+			buttons: {
+				저장 : function(){
+					//입력한 텍스트를 div#list 에추가
+					//일정은 datepicket로 보이기
+					var ename = $("#ename").val();
+					var edate = $("#edate").val();
+					
+					$("#list").append(`
+					<div>
+						<hr>
+						일정 이름 : ${ename} <br>
+						일정 날짜 : ${edate} <br>
+						<hr>
+					</div>
+					`);
+				},
+				닫기 : function(){
+					$("#dlg1").dialog("close");
+				}
+			}
+		});
+		
+		$("#open_dlg").click(function(){
+			$("#dlg1").dialog("open");
+		});
+	</script>
+</body>
+</html>

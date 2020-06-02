@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+</head>
+<body>
+	<!-- 이메일과 비밀번호를 입력해서 아이디를 조회해서 div#result에 표시 
+		id는 앞글자 3자리만 표시 abc***
+	-->
+	<h1>아이디 찾기</h1>
+	이메일 <input type="text" id="email"><br>
+	비밀번호 <input type="password" id="pwd"><br>
+	<input type="button" value="아이디찾기" id="btn1">
+	<div id="result"></div>
+	
+	<script type="text/javascript">
+		$("#btn1").on('click', function(){
+			var email = $("#email").val();
+			var pwd = $("#pwd").val();
+			
+			$.get("idsearch.jsp", {
+				"email": email,
+				"pwd": pwd
+			}, function( data ){
+				var using = $(data).find("id").text();
+				
+				if(using == "true"){
+					$("#result").html(`<h1>조회된 아이디 : ${id}</h1>`);
+				} else {
+					$("#result").html(`<h1>해당 정보를 찾을수 없습니다</h1>`);
+				}
+			}, "xml");
+		});
+	</script>
+</body>
+</html>

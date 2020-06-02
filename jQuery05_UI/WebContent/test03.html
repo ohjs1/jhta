@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+    	showOn: "both",
+    	buttonText: "Calendar",
+    	dateFormat: "yy/mm/dd",
+    	dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
+    	monthNames: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+    	yearSuffix: "년",
+    	showMonthAfterYear: true
+    });
+    
+    var date1 = $("#date1").datepicker({
+    	dataFormat: "yy/mm/dd",
+    	onSelect: function(d){
+    		alert("선택한 날짜" + d);
+    	}
+    });
+    date1.hide();
+    
+    $("#btn1").click(function(){
+    	date1.show();
+    });
+  } );
+  </script>
+</head>
+<body>
+ 
+<p>Date: <input type="text" id="datepicker"></p><br>
+<div id="date1"></div>
+<input type="button" value="달력보이기" id="btn1" />
+ 
+ 
+</body>
+</html>

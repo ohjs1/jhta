@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 버튼을 클릭하면 회원리스트를 div#result에 출력 -->
+	<input type="button" value="회원리스트" id="btn1"/><br />
+	<div id="result"></div>
+	
+	<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$("#btn1").click(function(){
+			//alert('dd');
+			$.ajax({
+				url: "server1.jsp",
+				dataType: "json",
+				method: "get",
+				success: function( data ){/*
+					for(var i=0; i<data.length; i++){
+						$("#result").append(`
+								<hr>
+								아이디 : ${data[i].id}<br>
+								비밀번호 : ${data[i].pwd}<br>
+								이메일 : ${data[i].email}<br>
+								<hr>
+								`);
+					}
+				*/
+				$("#result").html("");
+				
+				$(data).each(function(i, mem){ //mem에는 json배열에 담긴 json객체가 순차적으로 저장
+					$("#result").append(`
+							<hr>
+							아이디 : ${mem.id}<br>
+							비밀번호 : ${mem.pwd}<br>
+							이메일 : ${mem.email}<br>
+							<hr>
+							`);
+				});
+				}
+			});
+		});
+	</script>
+</body>
+</html>
