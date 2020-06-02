@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#comments div:hover {
+		background-color: gray;
+	}
+</style>
 </head>
 <body>
 <h1>우리우리 영화관</h1>
@@ -20,16 +25,36 @@
 		//console.log("test");
 		var href = $(this).prop("href");
 		var title = $(this).text();
-		console.log(title);
+		//console.log(title);
 		
 		$("#detail").load(href, function(){
 			//console.log("test");
 			$.ajax({
-				url: "/movie/comments",
-				data: title,
+				url: "/study_jquery/movie/comments",
+				data: {
+					"title": title
+				},
 				dataType: "json",
 				success: function( data ){
-					
+					//console.log($(data));
+					$("#comments").empty();
+					$(data).each(function(){
+						var num = $(this)[0].num;
+						var id = $(this)[0].id;
+						var comments = $(this)[0].comments;
+						
+						//console.log(num);
+						
+						$("#comments").append(`
+						<hr>
+						<div>
+							글번호 : ${num}<br>
+							아이디 : ${id}<br>
+							글내용 : ${comments}<br>
+						</div>
+						<hr>
+								`);
+					});
 				}
 			});
 		});
