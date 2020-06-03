@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#box1").draggable();
+		$("#box2 img").draggable({
+			//containment: "parent",
+			//axis: "x"
+			containment: [0,0,700,700]
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<div id="box1" style="width:400px; height:200px; background-color: skyblue;">
+		<h1>나를 드래그</h1>
+	</div>
+	<div id="box2" style="width:500px; height:500px; background-color: blue;">
+		<img src="images/1.png" id="img1"/>
+	</div>
+</body>
+</html>

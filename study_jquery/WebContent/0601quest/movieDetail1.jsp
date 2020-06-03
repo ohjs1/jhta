@@ -20,7 +20,7 @@
 		
 		$.getJSON("/study_jquery/comment/insert" ,{ id: id, content: content, mnum: mnum })
 		.done(function( json ){
-			
+			//alert('dd');
 		})
 		.fail(function(error){
 			console.log(error);
