@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500" style="border: 1px solid #aaa"></canvas>
+	<script type="text/javascript">
+		var canvas = $("canvas");
+		//alert(canvas);
+		var ctx = canvas[0].getContext("2d");
+		canvas.click(function(e){
+			//alert('test');
+			var rm = Math.floor( ( Math.random()*100 ) + 20 );
+			//console.log(r);
+			
+			var r = Math.floor( ( Math.random()*255 ) + 0 );
+			var g = Math.floor( ( Math.random()*255 ) + 0 );
+			var b = Math.floor( ( Math.random()*255 ) + 0 );
+			
+			/* console.log(r+">>>r");
+			console.log(g+">>>g");
+			console.log(b+">>>b"); */
+			
+			ctx.beginPath();
+			ctx.clearRect(0, 0, 500, 500);
+			ctx.arc(e.pageX, e.pageY, rm, 0, (Math.PI/180)*360 , true); 
+			ctx.fillStyle = `rgb(${r}, ${g} , ${b})`;
+			ctx.fill(); //내부칠하기
+			ctx.closePath();
+		});
+	</script>
+</body>
+</html>

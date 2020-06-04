@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body {
+		background-color: skyblue;
+		font-size: 1.5em;
+		color: white;
+	}
+	
+	ul li {
+		list-style: none;
+		float: left;
+		width: 100px;
+		background-color: #aaa;
+	}
+	
+	@media( max-width: 600px ){ /* 화면 최대크기가 600px인 경우 */
+		body {
+			font-size: 20px;
+			color: white;
+			background-color: green;
+		}
+		
+		ul li {
+			clear: both;
+			width: 200px;
+			background-color: lime;
+		}
+	}
+	
+	@media( min-width: 601px ) and ( max-width:800px ){ /* 화면 너비가 601~800px 사이인경우 */
+		body {
+			background-color: navy;
+			color: gray;
+		}
+	}
+	
+</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>메뉴1</li>
+			<li>메뉴2</li>
+			<li>메뉴3</li>
+			<li>메뉴4</li>
+		</ul>
+	</div>
+	<div style="clear: both;">
+		<h1>lorem</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit impedit.</p>
+	</div>
+</body>
+</html>

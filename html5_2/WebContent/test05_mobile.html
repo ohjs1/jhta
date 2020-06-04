@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	var smartPhone = ["iphone", "ipad", "android", "blackberry", "webos", "opera mini", "sonyerricron",
+		"windows ce", "opera mobi", "lemobile"];
+	
+	var mobile = false;
+	
+	for(var i in smartPhone){
+		if( navigator.userAgent.toLowerCase().match( new RegExp( smartPhone[i] ) ) ){
+			mobile = true;
+			break;
+		}
+		
+	}
+	
+	if(mobile){
+		location.href = "mobile.html"; //모바일 웹페이지로 이동
+	}
+	
+</script>
+</head>
+<body>
+	<h1>우리우리 쇼핑몰</h1>
+	<div>
+		<h2>데스크탑용 홈페이지</h2>
+		<img src="images/1.png" alt="" />
+		
+	</div>
+</body>
+</html>
