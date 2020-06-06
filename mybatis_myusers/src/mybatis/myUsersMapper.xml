@@ -3,5 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.MyUsersMapper">
-	
+	<insert id="insert" parameterType="value.object.MyusersVO">
+		insert into myusers values(#{id}, #{pw}, #{email}, sysdate)
+	</insert>
+	<select id="select" parameterType="value.object.MyusersVO" resultType="value.object.MyusersVO">
+		select * from myusers where id = #{id} and pw = #{pw}
+	</select>
+	<select id="myinfo" parameterType="String" resultType="value.object.MyusersVO">
+		select * from myusers where id = #{id}
+	</select>
+	<update id="update" parameterType="value.object.MyusersVO">
+		update myusers set pw = #{pw}, email = #{email}, mydate = #{mydate} where id = #{id}
+	</update>
+	<delete id="delete" parameterType="String">
+		delete from myusers where id = #{id}
+	</delete>
 </mapper>

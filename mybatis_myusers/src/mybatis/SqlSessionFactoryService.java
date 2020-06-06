@@ -9,7 +9,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class SqlSessionFactoryService {
 	private static SqlSessionFactory sqlSessionFactory;
-
+	
+	private SqlSessionFactoryService() {}
+	
 	static {
 		String resource = "mybatis/mybatis-config.xml";
 		sqlSessionFactory = null;
@@ -21,7 +23,6 @@ public class SqlSessionFactoryService {
 		}
 	}
 	public static SqlSessionFactory getSqlSessionFactory() {
-		System.out.println("sqlSessionFactory:" + sqlSessionFactory);
 		return sqlSessionFactory;
 	}
 }
