@@ -21,4 +21,15 @@
 	<select id="selectAll" resultType="value.object.MyusersVO">
 		select * from myusers
 	</select>
+	<select id="search" parameterType="hashmap" resultType="value.object.MyusersVO">
+		select * from myusers
+		<where>
+			<if test="id != null">
+				id like '%'|| #{keyword} ||'%'
+			</if>
+			<if test="email != null">
+				or email like '%'|| #{keyword} ||'%'
+			</if>
+		</where>
+	</select>
 </mapper>

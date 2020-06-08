@@ -1,5 +1,6 @@
 package data.access.object;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -80,6 +81,19 @@ public class MemberDAO {
 		try {
 			
 			List<MyusersVO> list = session.selectList("mybatis.MyUsersMapper.selectAll");
+			return list;
+			
+		} finally {
+			if(session !=null) session.close();
+		}
+	}
+	
+	public List<MyusersVO> searchList(HashMap<String, String> map){
+		SqlSessionFactory sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
+		SqlSession session = sqlSessionFactory.openSession();
+		
+		try {
+			List<MyusersVO> list = session.selectList("mybatis.MyUsersMapper.search", map);
 			return list;
 			
 		} finally {
