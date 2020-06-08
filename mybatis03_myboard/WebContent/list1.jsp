@@ -8,12 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${ pageContext.request.contextPath }/list" method="post">
-		<select name="field">
-			<option value="title">글제목</option>
-			<option value="writer">작성자</option>
-			<option value="content">내용</option>
-		</select>
+	<form action="${ pageContext.request.contextPath }/list1" method="post">
+		<input type="checkbox" name="writer" checked="checked" value="writer" /> 작성자
+		<input type="checkbox" name="title" value="title" /> 제목
+		<input type="checkbox" name="content" value="content" /> 내용
 		
 		<input type="text" name="keyword" />
 		<input type="submit" value="검색" />

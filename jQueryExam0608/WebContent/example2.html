@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<style type="text/css">
+	img {
+		width: 250px;
+		height: 180px;
+	}
+</style>
+</head>
+<body>
+<div id="imgs">
+	<img src="images/1.jpg"/>
+	<img src="images/2.jpg"/>
+	<img src="images/3.jpg"/>
+	<img src="images/4.jpg"/>
+	<img src="images/5.jpg"/>
+</div>
+</body>
+
+<script type="text/javascript">
+	var originPath = null;
+	$("img").hover(function() {
+		originPath = $(this).prop("src");
+		var r = Math.floor( Math.random() * 7 + 1 );
+		$(this).prop("src", `images/${r}.jpg`);
+		
+	}, function(){
+		$(this).prop("src", `${originPath}`);
+	});
+
+</script>
+</html>

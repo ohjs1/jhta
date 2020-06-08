@@ -6,8 +6,11 @@
 	<insert id="insert" parameterType="vo.BoardVo">
 		insert into myboard values(myboard_seq.nextval, #{writer}, #{pwd}, #{title}, #{content}, sysdate)
 	</insert>
-	<select id="select" resultType="vo.BoardVo">
+	<select id="select" resultType="board" parameterType="hashmap">
 		select * from myboard
+		<if test="field != null">
+			where ${field} like '%'|| #{keyword} ||'%'
+		</if>
 	</select>
 	<delete id="delete" parameterType="int">
 		delete from myboard where num = #{num}
@@ -17,5 +20,19 @@
 	</update>
 	<select id="selectDoGet" parameterType="int" resultType="vo.BoardVo">
 		select * from myboard where num = #{num}
+	</select>
+	<select id="select1" resultType="board" parameterType="hashmap">
+		select * from myboard
+		<where>
+			<if test="writer != null">
+				writer like '%'|| #{keyword} ||'%'
+			</if>
+			<if test="title != null">
+				or title like '%'|| #{keyword} ||'%'
+			</if>
+			<if test="content != null">
+				or content like '%'|| #{keyword} ||'%'
+			</if>
+		</where>
 	</select>
 </mapper>

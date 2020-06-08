@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.MovieMapper">
+	<select id="movieComments" resultType="hashmap">
+		select m.mnum, m.title, m.content, m.director, c.num, c.id, c.comments
+		from movie m, comments c
+		where m.mnum = c.mnum
+	</select>
+</mapper>

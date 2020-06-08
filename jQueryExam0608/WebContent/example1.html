@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="loginOk.jsp">
+		아이디<input type="text" id="id" /><br>
+		비밀번호 <input type="password" id="pwd" /><br>
+		<input type="submit" value="전송" onclick="loginChk(event)"/>
+	</form>
+	
+	
+	<script type="text/javascript">
+		function loginChk(event){
+			var id = document.getElementById("id").value;
+			var pwd = document.getElementById("pwd").value;
+			var pattern_kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;
+			if( id != "" && pwd != "" && !pattern_kor.test(id) && !pattern_kor.test(pwd)){
+				//아이디와 비밀번호에 공백이없어야함, 아이디와 비밀번호에 한글이 포함되면 안됨
+				console.log("동작!");
+			} else {
+				event.preventDefault();
+				console.log("한글포함됨");
+				alert("공백이거나, 한글이 포함될수 없습니다.");
+			}
+		}
+	</script>
+</body>
+</html>

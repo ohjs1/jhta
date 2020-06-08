@@ -7,7 +7,7 @@
 %>
 <html lang="en">
 <head>
-  <title>Mymembers Table</title>
+  <title>MyUsers Table</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -74,6 +74,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="<%=request.getContextPath() %>/index.jsp">Home</a></li>
         <li><a href="<%=request.getContextPath() %>/member/myinfo">myInfo</a></li>
+	    <li><a href="<%=request.getContextPath() %>/member/allusers">AllUsers</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <c:choose>
@@ -84,7 +85,6 @@
       		<li><a href="<%=request.getContextPath() %>/window/logout?"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Logout</a></li>
       	</c:otherwise>
       </c:choose>
-        
       </ul>
     </div>
   </div>

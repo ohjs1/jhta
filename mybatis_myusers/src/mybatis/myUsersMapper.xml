@@ -18,4 +18,7 @@
 	<delete id="delete" parameterType="String">
 		delete from myusers where id = #{id}
 	</delete>
+	<select id="selectAll" resultType="value.object.MyusersVO">
+		select * from myusers
+	</select>
 </mapper>

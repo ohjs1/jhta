@@ -1,5 +1,6 @@
 package test.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -25,15 +26,27 @@ public class BoardDao {
 		}
 	}
 	
-	public List<BoardVo> getList() {
+	public List<BoardVo> getList(HashMap<String, String> map) {
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
 		SqlSession session = null;
 		
 		try {
 			session = sqlSessionFactory.openSession();
-			List<BoardVo> list = session.selectList(NAMESPACE + ".select");
+			List<BoardVo> list = session.selectList(NAMESPACE + ".select", map);
 			session.commit();
 			return list;
+		} finally {
+			if(session != null) session.close();
+		}
+	}
+	
+	public List<BoardVo> getList1(HashMap<String, String> map) {
+		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
+		SqlSession session = null;
+		
+		try {
+			session = sqlSessionFactory.openSession();
+			return session.selectList(NAMESPACE + ".select1", map);
 		} finally {
 			if(session != null) session.close();
 		}

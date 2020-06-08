@@ -1,6 +1,6 @@
 package data.access.object;
 
-import java.sql.SQLException;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -70,6 +70,20 @@ public class MemberDAO {
 			return n;
 		} finally {
 			if( session != null ) session.close();
+		}
+	}
+	
+	public List<MyusersVO> getAllUserList(){
+		SqlSessionFactory sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
+		SqlSession session = sqlSessionFactory.openSession();
+		
+		try {
+			
+			List<MyusersVO> list = session.selectList("mybatis.MyUsersMapper.selectAll");
+			return list;
+			
+		} finally {
+			if(session !=null) session.close();
 		}
 	}
 }

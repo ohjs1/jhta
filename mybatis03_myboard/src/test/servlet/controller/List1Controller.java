@@ -13,24 +13,24 @@ import javax.servlet.http.HttpServletResponse;
 import test.dao.BoardDao;
 import vo.BoardVo;
 
-@WebServlet("/list")
-public class ListController extends HttpServlet {
+@WebServlet("/list1")
+public class List1Controller extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
-		
-		String field = req.getParameter("field");
+		String writer = req.getParameter("writer");
+		String title = req.getParameter("title");
+		String content = req.getParameter("content");
 		String keyword = req.getParameter("keyword");
-		
-		//System.out.println("field:" + field);
-		
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("field", field);
+		map.put("writer", writer);
+		map.put("title", title);
+		map.put("content", content);
 		map.put("keyword", keyword);
 		
 		BoardDao dao = new BoardDao();
-		List<BoardVo> list = dao.getList(map);
+		List<BoardVo> list = dao.getList1(map);
 		req.setAttribute("list", list);
-		req.getRequestDispatcher("/list.jsp").forward(req, resp);
+		req.getRequestDispatcher("list1.jsp").forward(req, resp);
 	}
 }
